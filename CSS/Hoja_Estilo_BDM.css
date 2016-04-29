@@ -1,0 +1,521 @@
+/*Rotar imagen para el audio: transform: rotate(-756deg);*/
+/*Generales*/
+body{
+	background-color: #FBFBFB;
+	font-family: Teko;
+	margin: 0px;
+}
+
+a{
+	color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+h1,h2,h3,h4,h5,h6,p,pre,input, button, select, textarea{
+	font-family: Teko;
+	margin: 0px;
+}
+h1{
+	font-size: 47.5px;
+}
+h4{
+	font-size: 24px;
+}
+input[type="text"], input[type="password"],input[type="number"], select{
+	border-radius: 5px;
+    border-color: #A5A5A5;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 24px;
+    padding: 6px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    background-color: white;
+    margin-bottom: 15px;
+    color: #303030;
+}
+select{
+    font-size: 21px;
+}
+textarea{
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/*Encabezado*/
+.Boton{
+    background: linear-gradient(#C20000, #600000);
+    border-color: #660B0B;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+	cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: initial;
+}
+.Boton:hover{
+    background: linear-gradient(#FF0000, #8D0000);
+}
+#BotonesRegistro{
+	width: 30%;
+}
+#BotonesRegistro button{
+	background: linear-gradient(#C20000, #600000);
+	float: right;
+    margin-top: 12px;
+    margin-right: 20px;
+    font-size: 15px;	
+}
+#BotonesRegistro button:hover{
+	background: linear-gradient(#FF0000, #8D0000);
+}
+#BusquedaAudio{
+	text-align: center;
+	width: 55%;
+}
+#BusquedaAudio input{
+	background-color: #F1F1F1;
+	border-radius: 8px;
+	border-width: 1px;
+	color: #6D6D6D;
+	font-size: 24px;
+	margin-top: 10px;
+	padding-bottom: 1px;
+	padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    width: 100%;
+}
+#Encabezado{
+	background-color:#A71D1D;
+	box-shadow: 0px 3px 4px gray;
+	display: flex;
+	height: 65px;
+	position: fixed;
+	width: 100%;
+    z-index: 99;
+}
+#FotoUsuario{
+	width: 4%;
+}
+#FotoUsuario img{
+    height: 53px;
+    border-color: #F1F1F1;
+    background-color: #F1F1F1;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 5px;
+}
+#Logotipo{
+	width: 15%;
+}
+#Logotipo img{
+    height: 55px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+#MenuOpciones{
+	color: #191919;
+	display: none;
+	left: 87%;
+    position: fixed;
+    top: 65px;
+    width: 180px;
+}
+#NombreUsuario{
+	display: inline-table;
+	width: 23%;	
+}
+#NombreUsuario h2{
+    float: right;
+	margin-bottom: 0px;
+	margin-right: 15px;
+    margin-top: 20px;
+}
+#OpcionesUsuario{
+	text-align: center;
+	width: 3%;
+}
+#OpcionesUsuario img{
+	height: 10px;
+    margin-top: 30px;
+}
+.OpcionMenu{
+	background-color: #CA1A1A;
+	border-color: #820F0F;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-width: 0px;
+	cursor: pointer;
+    font-size: 22px;
+    padding: 10px;
+}
+.OpcionMenu:hover{
+	background-color: #841D1D;
+    color: #F1F1F1;
+}
+#Usuario{
+	text-align: right;
+	width: 20%;
+}
+
+/*Contenido de página*/
+#Contenido{
+	width: 70%;
+	margin-top: 65px;
+}
+#Contenido>*{
+	margin-left: 20px;
+}
+#Contenido h1{
+	margin-top: 15px;
+	font-size: 70px;
+}
+#EspacioContenido{
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	background-color: #FBFBFB;;
+}
+
+/*Página de inicio*/
+.AudioVista{
+	background-color: gray;
+	background-repeat: round;
+    border-radius: 30px;
+    display: -webkit-inline-box;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    width: 200px;
+}
+.AudioInfo{
+	background-color: rgba(251, 251, 251, 0.7);
+	font-variant: small-caps;
+    height: 100%;
+    margin-top: 50%;
+    width: 100%;
+}
+.AudioInfo h3{
+	font-size: 35px;
+	margin-top: 25%;
+}
+.AudioInfo h4{
+	font-size: 28px;
+}
+/*Publicidad*/
+#Publicidad{
+	position: fixed;
+	text-align: center;
+	top: 70px;
+	width: 30%;
+	z-index: 1;
+}
+#Publicidad img, video{
+	height: 90%;
+	margin-left: 5px;
+	margin-top: 5px;
+	width: 90%;
+}
+
+/*Registro de usuario*/
+#EspacioGris{
+	background-color: rgba(25, 25, 25, 0.38);
+    height: 100%;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+    z-index: -1000;
+}
+.InputLargo{
+	width: 95.3%;
+}
+.InputCorto{
+	margin-right: 3%;
+	width: 43.3%;
+}
+#RegistroUsuario{
+    background-color: #F2F2F2;
+    background-image: url('Fondo_Registro_Usuario.jpg');
+    background-repeat: round;
+    border-radius: 15px;
+    height: 390px;
+    padding: 3%;
+    padding-top: 0px;
+    position: fixed;
+    margin-left: 20%;
+    margin-top: 6%;
+    visibility: hidden;
+    width: 44%;
+    z-index: 1001;
+}
+#RegistroUsuario img{
+	cursor: pointer;
+	left: 78%;
+    position: relative;
+    top: 10px;
+    width: 30px;
+}
+#PerfilAvatar{
+    background-repeat: round;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
+    border-style: double;
+    cursor: pointer;
+    height: 167px;
+    position: relative;
+    top: -84px;
+    width: 160px;
+}
+#PerfilPortada{
+    background-repeat: round;
+    cursor: pointer;
+    height: 350px;
+    left: -20px;
+    position: relative;
+    width: 102%;
+}
+#NombrePerfil{
+    font-size: 40px;
+    position: relative;
+    top: -165px;
+    left: 180px;
+}
+#EdicionInformacionPersonal{
+    display: none;
+}
+#EspacioPerfil{
+    height: 440px;
+    margin-bottom: 25px;
+}
+#InformacionPersonal, #EdicionInformacionPersonal{
+    border-width: 2px;
+    border-style: groove;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    color: #4B4B4B;
+}
+#EdicionInformacionPersonal h4{
+    display: inline; 
+    margin-right: 20px;
+}
+.Cargar{
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    visibility: hidden;
+    width: 37px;
+}
+
+/*Página de audio*/
+.DiscoVinilo{
+    background-image: url('Disco_Vinilo_Plantilla.png');
+    background-repeat: round;
+    cursor: pointer;
+    display: inline-block;
+    height: 500px;
+    width: 500px;
+}
+.PortadaDiscoVinilo{
+    background-repeat: round;
+    border-radius: 100%;
+    cursor: pointer;
+    height: 50%;
+    left: 25.4%;
+    margin-top: 0px;
+    position: relative;
+    top: 24.8%;
+    width: 50%;
+}
+.AudioInfoCompleta{
+    padding-left: 10px;
+    display: inline-block;
+    width: 410px;
+}
+.UsuarioLink{
+    color: red;
+}
+.AudioInfoCompleta h2{
+    font-size: 30px;
+}
+.AudioInfoCompleta p{
+    font-size: 23px;
+}
+.AudioContenido{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+}
+.CarritoCompras{ /*Carrito de compras dentro de la página de audio*/
+    height: 60px;
+    float: right;
+    background-color: #201C1D; /*Color para cuando no lo halla metido en el carrito*/
+    /*#570D0D; Color para cuando este en el carrito*/
+    /*#A71D1D; Color para cuando ya haya sido comprado*/
+    /*.CarritoCompras:hover{    background-color: #898989;}*/
+    border-radius: 6px;
+    cursor: pointer;
+}
+.Comentario{
+    display: flex;
+    background-color: #f2f2f2;
+    border-width: 1px;
+    border-bottom-width: 0px;
+    border-style: groove;
+    border-radius: 2px;
+    padding-top: 5px;
+}
+.Comentario p{
+    margin-left: 10px;
+    font-size: 18px;
+}
+#Comentarios{
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: groove;
+}
+.FotoUsuarioComentario{
+    width: 9%;
+    border-width: 0px;
+    border-right-width: 1px;
+    border-style: groove;
+}
+.FotoUsuarioComentario img{
+    width: 55px;
+    margin-left: 6px;
+    height: 55px;
+}
+.NombreUsuarioComentario{
+    display: inline-table;
+    width: 80%; 
+}
+#ListaAudios{
+    color: white;
+    overflow-y: scroll;
+    height: 230px;
+    background-color: gray;
+}
+.ListaAudio{
+    height: 70px;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: double;
+    border-color: #C3C3C3;
+    display: flex;
+    margin-top: 10px;
+}
+.ListaAudio:hover{
+
+}
+.ListaAudioSeleccionado{
+
+}
+.FotoListaAudio{
+    width: 20%;
+    height: 100%;
+    padding: 5px;
+}
+.FotoListaAudio img{
+    width: 90%;
+    height: 90%;
+}
+.NombreAudioLista{
+    width: 80%;
+}
+
+/*Subir audio*/
+.SubirImagenAudio{
+    background-color: white;
+    background-image: url('Carga.png');
+    background-repeat: round;
+    cursor: pointer;
+    display: inline-block;
+    height: 500px;
+    width: 500px;
+    background-color: #f2f2f2;
+}
+#TVP_Eliminar{
+    width: 10%;
+}
+#TVP_Video{
+    width: 50%;
+}
+#TVP_Video img, video{
+    width: 100%;
+}
+#TVP_Horarios{
+    width: 40%;
+}
+#TVP_Horarios img{
+    width: 12px;
+    height: 12px;
+}
+
+#TVP_Eliminar, #TVP_Video, #TVP_Horarios{
+    background-color: #ca1a1a;
+    color: #FBFBFB;
+    font-size: 22px;
+}
+#BuscarVideosPromocionales{
+    background-color: #6d6d6d;
+    color: white;
+    padding-top: 20px;
+    font-size: 25px;
+}
+#BuscarVideosPromocionales p, select{
+    display: inline-block;
+    margin-left: 20px;
+}
+.Thumbnail{
+    margin-left: 2%;
+    width: 95%;
+}
+.TablaEspecial{
+    border-collapse: collapse;
+    margin-right: 10px;
+}
+.TablaEspecial th, td{
+    padding: 5px 10px;
+    border: 1px solid #999;
+}
+.TablaEspecial th{
+    background-color: #DDDDDD;
+    cursor:pointer;
+}
+
+/*Listas de reproduccion*/
+.ListaVista{
+    background-color: gray;
+    background-repeat: round;
+    display: -webkit-inline-box;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    width: 270px;
+}
+.ListaInfo{
+    background-color: rgba(251, 251, 251, 0.7);
+    font-variant: small-caps;
+    margin-top: 50%;
+    height: 33%;
+    width: 100%;
+}
+.ListaInfo h3{
+    font-size: 30px;
+}
+.ListaInfo h4{
+    font-size: 18px;
+}
