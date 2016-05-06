@@ -22,7 +22,7 @@
 				<a href="Pagina_Inicio.html">
 					<img src="CafeVinyl.png">
 				</a>
-			</div>
+			</div> 
 			<div id="BusquedaAudio">
 				<form>
 					<input type="text" placeholder="Buscar audio..." name="BuscarAudio">

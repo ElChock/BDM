@@ -10,10 +10,7 @@
 	</head>
 
 	<body>
-        <?php
-        $audio=  Pais();
-        
-        ?>
+
 		<div id="Encabezado">
 			<div id="Logotipo">
 				<a href="Pagina_Inicio.php">

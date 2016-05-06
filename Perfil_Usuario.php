@@ -9,6 +9,7 @@
 	</head>
 
 	<body>
+            <form action="controller/ControllerPerfilUsuario.php" method="post">
 		<div id="RegistroUsuario">
 			<button class="Boton">Registrate</button>
 			<!--Opcional
@@ -16,14 +17,14 @@
 				<p>Inicia sesión</p>
 			-->
 			<!--Este botón alterna el contenido entre Registrate o Iniciar sesión. También alteraría la altura de Registro Usuario (390px-280px)-->
-			<img src="Tacha.png" onclick="CerrarRegistroUsuario()">
+			<img src="Imagenes/Tacha.png" onclick="CerrarRegistroUsuario()">
 			<h1>Unete a la comunidad de Cafe Vinyl</h1>
 			<!--Iniciar sesión solo muestra los campos de correo y contraseña-->
 			<!--Registrarte como usuario-->
-			<input type="text" name="Alias" placeholder="*Alias" title="*Alias" class="InputLargo" value="Benjamin">
-			<input type="text" name="Nombre(s)" placeholder="*Nombre" title="*Nombre(s)" class="InputCorto" value="Benjamin">
-			<input type="text" name="Apellidos" placeholder="*Apellidos" title="*Apellidos" class="InputCorto" style="margin-right: 0%;" value="Navarro Salinas">
-			<input type="text" name="Correo" placeholder="*Correo" title="*Correo" class="InputCorto" value="copia321@hotmaili.com">
+			<input type="text" name="Alias" placeholder="*Alias" title="*Alias" class="InputLargo" >
+			<input type="text" name="Nombre(s)" placeholder="*Nombre" title="*Nombre(s)" class="InputCorto" >
+			<input type="text" name="Apellidos" placeholder="*Apellido" title="*Apellidos" class="InputCorto" style="margin-right: 0%;" >
+			<input type="text" name="Correo" placeholder="*Correo" title="*Correo" class="InputCorto" >
 			<input type="password" name="Contrasena" placeholder="*Contrasena" title="*Contrasena" class="InputCorto" style="margin-right: 0%;">
 			<h4>*Fecha de nacimiento</h4>
 			<select style="margin-right: 20px;" title="Dia">
@@ -57,6 +58,7 @@
 			</div>
 			<div style="display: inline;"><button class="Boton" style="float: right;" type="submit" >Registrate</button></div>
 		</div>
+            </form>
 		<div id="EspacioGris" onclick="CerrarRegistroUsuario()"></div>
 
 		<div id="Encabezado">
@@ -189,7 +191,7 @@
 				<div class="AudioVista" style="background-image: url('9.jpg');"></div>
 			</div>
 			<div id="Publicidad">
-				<video autoplay loop>
+				<video autoplay loop muted>
 					<source src="Videos/City.mp4" type="video/mp4">
 					Este browser no acepta videos
 				</video>
