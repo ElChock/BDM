@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Cafe Vinyl</title>
-		<link href='https://fonts.googleapis.com/css?family=Teko:600' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="Hoja_Estilo_BDM.css">
 		<meta charset="UTF-8">
 
@@ -17,7 +16,7 @@
 				</a>
 			</div>
 			<div id="BusquedaAudio">
-				<form>
+				<form action="Pagina_Inicio.html" method="get">
 					<input type="text" placeholder="Buscar audio..." name="BuscarAudio">
 				</form>
 			</div>
@@ -34,11 +33,12 @@
 
 			<div id="MenuOpciones" onmouseover="Desplegar()" onmouseout="Minimizar()">
 				<a href=""><div class="OpcionMenu">Administrar audios</div></a>
-				<a href=""><div class="OpcionMenu">Carrito de compras</div></a>
+				<a href="Carrito_Compras.html"><div class="OpcionMenu">Carrito de compras</div></a>
 				<a href="Perfil_Usuario.html"><div class="OpcionMenu">Mi perfil</div></a>
-				<a href=""><div class="OpcionMenu">Mis listas</div></a>
-				<a href=""><div class="OpcionMenu">Subir audio</div></a>
-				<a href=""><div class="OpcionMenu">Reporte de ventas</div></a>
+				<a href="Usuario_Listas.html"><div class="OpcionMenu">Mis listas</div></a>
+				<a href="Subir_Audio.html"><div class="OpcionMenu">Subir audio</div></a>
+				<a href="Reporte_Ventas.html"><div class="OpcionMenu">Reporte de ventas</div></a>
+				<a href="Subir_Videos_Publicitarios.html"><div class="OpcionMenu">Publicidad</div></a>
 			</div>
 		</div>
 
@@ -93,16 +93,17 @@
 						</div>
 					</div>
 				</div> <br>
-				<form>
-					<textarea title="Puedes comentar aqui..." placeholder="Puedes comentar aqui..." name="ComentarioNuevo" style="margin-bottom:20px;"></textarea>
+				<form  action="Pagina_Audio.html" method="get">
+					<textarea title="Puedes comentar aqui..." placeholder="Puedes comentar aqui..." name="ComentarioNuevo" style="margin-bottom:20px; width: 97.6%;"></textarea>
+					<input type="submit" value="Comentar">
 				</form>
 			</div>
 			<div id="Publicidad">
-				<video autoplay loop>
+				<video autoplay loop muted>
 					<source src="City.mp4" type="video/mp4">
 					Este browser no acepta videos
 				</video>
-				<img src="CafeVinyl1.jpg" style="width: 70%; height: 70%">
+				<img src="Fondo_Portada.jpg">
 			</div>
 		</div>
 	</body>

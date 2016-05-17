@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Cafe Vinyl</title>
-		<link href='https://fonts.googleapis.com/css?family=Teko:600' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="Hoja_Estilo_BDM.css">
 		<meta charset="UTF-8">
 
@@ -17,7 +16,7 @@
 				</a>
 			</div>
 			<div id="BusquedaAudio">
-				<form>
+				<form action="Pagina_Inicio.html" method="get">
 					<input type="text" placeholder="Buscar audio..." name="BuscarAudio">
 				</form>
 			</div>
@@ -34,12 +33,12 @@
 
 			<div id="MenuOpciones" onmouseover="Desplegar()" onmouseout="Minimizar()">
 				<a href=""><div class="OpcionMenu">Administrar audios</div></a>
-				<a href=""><div class="OpcionMenu">Carrito de compras</div></a>
+				<a href="Carrito_Compras.html"><div class="OpcionMenu">Carrito de compras</div></a>
 				<a href="Perfil_Usuario.html"><div class="OpcionMenu">Mi perfil</div></a>
-				<a href=""><div class="OpcionMenu">Mis listas</div></a>
-				<a href=""><div class="OpcionMenu">Subir audio</div></a>
-				<a href=""><div class="OpcionMenu">Reporte de ventas</div></a>
-			</div>
+				<a href="Usuario_Listas.html"><div class="OpcionMenu">Mis listas</div></a>
+				<a href="Subir_Audio.html"><div class="OpcionMenu">Subir audio</div></a>
+				<a href="Reporte_Ventas.html"><div class="OpcionMenu">Reporte de ventas</div></a>
+				<a href="Subir_Videos_Publicitarios.html"><div class="OpcionMenu">Publicidad</div></a>			</div>
 		</div>
 
 		<div id="EspacioContenido">
@@ -48,30 +47,27 @@
 					<div class="SubirImagenAudio" onclick="SubirImagen()"></div>
 					<div class="AudioInfoCompleta">
 						<form>
-							<h4>Precio</h4><input type="number" name="AudioPrecio" title="Precio (en pesos)">
-							<h4>Titulo</h4><input type="text" name="AudioTitulo">
-							<h4>Artista: Benjamin Navarro</h4>
-							<!--No requiere ser introducido-->
-							<h4>Genero(s):</h4>
-							<select>
-								<option>Pop</option>
-								<option>Rock</option>
-								<option>Hip-Hop</option>
-							</select>
-							<button>Agregar</button>
-							<textarea title="Genero(s) (generos separados por coma)"></textarea>
-							<h4>Categoria(s):</h4>
-							<textarea title="Categoria(s) (categorias separados por coma)"></textarea>
+							<h4>Artista: Benjamin Navarro Salinas</h4>
+							<h4>Titulo: </h4><input type="text" name="AudioTitulo">
+							<h4>Precio (en pesos): </h4><input type="number" name="AudioPrecio" title="Precio (en pesos)" value="0">
+							<h4>Genero(s): 
+								<p><input type="checkbox" value="0" name="Genero"> Rock</p>
+								<p><input type="checkbox" value="1" name="Genero"> Pop</p>
+								<p><input type="checkbox" value="2" name="Genero"> Electronica</p>
+							</h4>
+							<h4>Categoria(s):
+								<p><input type="checkbox" value="0" name="Categoria"> Solo</p>
+								<p><input type="checkbox" value="1" name="Categoria"> Album</p>
+								<p><input type="checkbox" value="2" name="Categoria"> Educativo</p>
+							</h4>
+							<input type="file" name="audio" accept="audio/*">
+							<input type="submit" value="Subir cancion">
 						</form>
 					</div>
 				</div>
 			</div>
 			<div id="Publicidad">
-				<video autoplay loop>
-					<source src="City.mp4" type="video/mp4">
-					Este browser no acepta videos
-				</video>
-				<img src="CafeVinyl1.jpg" style="width: 70%; height: 70%">
+				<img src="Fondo_Portada.jpg">
 			</div>
 		</div>
 	</body>
