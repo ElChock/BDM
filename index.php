@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
-         echo "Hello, world! This is my first PHP project!";
+         echo "Hello darkness my old friend! This is my first PHP project!";
          
         ?>
     </body>
