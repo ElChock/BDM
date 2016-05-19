@@ -22,18 +22,36 @@ class DaoUsuario {
         $conn = new MySqlCon();
         $connect=$conn->connect();
         $stmt=$connect->prepare("call spa_usuario(? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("issssssbbssiisiss", $usuario->getCorreo(),$usuario->getContraseña(),$usuario->getNombre(),$usuario->getApellidoMaterno(),$usuario->getApellidoPaterno(),$usuario->getFotoPerfil(),$usuario->getFotoPortada(),$usuario->getFechaNacimiento(),$usuario->getCalle(),$usuario->getNumero(),$usuario->getCodigoPostal(),$usuario->getColonia(),$usuario->getIdPais(),$usuario->getGenero(),$usuario->getTipoUsuario());
+        $stmt->bind_param("issssssbbssiisiss", $usuario->getCorreo(),sha1($usuario->getContraseña()),$usuario->getNombre(),$usuario->getApellidoMaterno(),$usuario->getApellidoPaterno(),$usuario->getFotoPerfil(),$usuario->getFotoPortada(),$usuario->getFechaNacimiento(),$usuario->getCalle(),$usuario->getNumero(),$usuario->getCodigoPostal(),$usuario->getColonia(),$usuario->getIdPais(),$usuario->getGenero(),$usuario->getTipoUsuario());
         $stmt->execute();
                 
     }
         public function AltaUsuarioRapido(Usuario $usuario)
-    {
-            
+    {           
         $conn = new MySqlCon();
-        $connect= new mysqli("localhost", "root", "little20!");
-        $stmt=$connect->prepare("call spa_usuarioRapido(? ,?,?,?,?,?,?)");
-        $stmt->bind_param("sssssss", $usuario->getAlias(),$usuario->getNombre(),$usuario->getApellidoPaterno(),$usuario->getContraseña(),$usuario->getFechaNacimiento(),$usuario->getGenero());
-        $stmt->execute();
+        $connect = $conn->connect();
+      
+        if(mysqli_connect_errno())
+           {
+            printf("Error de conexión: %s\n", mysqli_connect_error());
+           } 
+        
+      if($stmt=$connect->prepare("call spa_usuarioRapido(?, ?, ?, ?, ?, ?, ?)"))
+    {
+            if($stmt->bind_param('sssssss', $usuario->getAlias(),$usuario->getNombre(),$usuario->getApellidoPaterno(),$usuario->getCorreo(),$usuario->getContraseña(),$usuario->getFechaNacimiento(),$usuario->getGenero()))
+            {
+                printf("entro al bind");
                 
+                if($stmt->execute())
+                {
+                    
+                 printf("entro al execute");   
+                }
+            }
+    }
+    else 
+    {
+        echo "no funciono el store de altaUsuarioRapido"    ;
+    }              
     }
 }

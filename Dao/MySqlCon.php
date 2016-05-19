@@ -20,8 +20,15 @@ class MySqlCon {
      
         public function connect ()
         {
-            $yolo= mysql_connect('localhost', 'root', 'little20!');
+            $yolo=  new mysqli("localhost", "root", "little20!","bdm");
+            if(mysqli_connect_errno())
+            {
+                echo "no se pudo conecctar a MYsql ";
+            }
+            else
+            {
              return$yolo;
+            }
            // return mysqli('localhost','root','little20!');
         }
 

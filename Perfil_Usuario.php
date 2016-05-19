@@ -1,3 +1,16 @@
+<?php
+include_once './Dao/DaoPublicidad.php';
+include_once './Model/Publicidad.php';
+include_once './Dao/DaoPublicidadPagina.php';
+$daoPublicidadPagina= new DaoPublicidadPagina();
+$publicidad=$daoPublicidadPagina->BuscarPublicidadParaMostrar(5);
+$pathPublicidad=$publicidad->getPath();
+if(empty($pathPublicidad))
+{
+    $pathPublicidad="City.mp4";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,6 +22,9 @@
 	</head>
 
 	<body>
+            <?php
+            $NickName="";
+            ?>
             <form action="controller/ControllerPerfilUsuario.php" method="post">
 		<div id="RegistroUsuario">
 			<button class="Boton">Registrate</button>
@@ -27,29 +43,42 @@
 			<input type="text" name="Correo" placeholder="*Correo" title="*Correo" class="InputCorto" >
 			<input type="password" name="Contrasena" placeholder="*Contrasena" title="*Contrasena" class="InputCorto" style="margin-right: 0%;">
 			<h4>*Fecha de nacimiento</h4>
-			<select style="margin-right: 20px;" title="Dia">
-				<option>01</option>
-				<option>02</option>
-				<option>03</option>
+                        
+			<select style="margin-right: 20px;" title="Dia" name="dia">
+                            <?php
+                                for ($index = 1; $index < 32; $index++) {
+                                    
+                                    echo "<option value=$index>$index</option>";
+                                 
+                                }
+
+                            ?>
+                            
 			</select>
-			<select style="margin-right: 20px; width:160px;" title="Mes">
-				<option>Enero</option>
-				<option>Febrero</option>
-				<option>Marzo</option>
-				<option>Abril</option>
-				<option>Mayo</option>
-				<option>Junio</option>
-				<option>Julio</option>
-				<option>Agosto</option>
-				<option>Septiembre</option>
-				<option>Octubre</option>
-				<option>Noviembre</option>
-				<option>Diciembre</option>
+     
+			<select style="margin-right: 20px; width:160px;" title="Mes" name="mes">
+				<option value="01">Enero</option>
+				<option value="02">Febrero</option>
+				<option value="03">Marzo</option>
+				<option value="04">Abril</option>
+				<option value="05">Mayo</option>
+				<option value="06">Junio</option>
+				<option value="07">Julio</option>
+				<option value="08">Agosto</option>
+				<option value="09">Septiembre</option>
+				<option value="10">Octubre</option>
+				<option value="11">Noviembre</option>
+				<option value="12">Diciembre</option>
 			</select>
-			<select title="Año">
-				<option>2014</option>
-				<option>2015</option>
-				<option>2016</option>
+			<select title="Año" name="año">
+                            <?php
+                                for ($index = 1920; $index < 2017; $index++) {
+                                    
+                                    echo "<option value=$index>$index</option>";
+                                   
+                                }
+                            ?>
+	
 			</select>
 			<br>
 			<div style="font-size: 22px;display: inline;" title="*Sexo">
@@ -192,7 +221,9 @@
 			</div>
 			<div id="Publicidad">
 				<video autoplay loop muted>
-					<source src="Videos/City.mp4" type="video/mp4">
+                                    <?php
+                                    echo "<source src=Videos/"; echo $pathPublicidad;echo " type=video/mp4> ";
+                                    ?>
 					Este browser no acepta videos
 				</video>
 				<img src="Imagenes/CafeVinyl1.jpg" style="width: 70%; height: 70%">
