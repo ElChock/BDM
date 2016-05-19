@@ -42,28 +42,27 @@
 
 		<div id="EspacioContenido">
 			<div id="Contenido">
-				<h1>Mis listas de reproduccion</h1>
-				
-				<a href="" class="ListaVista" style="background-image: url('Lista_Clasica.jpg');">
-						<div class="ListaInfo">
-							<h3>Clasicos</h3>
-							<h4>15 canciones</h4>
+				<h1>Clasicos</h1>
+				<div id="ListaAudios">
+					<div class="ListaAudio">
+						<div class="FotoListaAudio">
+							<img src="4.jpg">
 						</div>
-				</a>
-
-				<a href="" class="ListaVista" style="background-image: url('Lista_Rock.jpg');">
-						<div class="ListaInfo">
-							<h3>Rock</h3>
-							<h4>22 canciones</h4>
+						<div class="NombreAudioLista">
+								<h4>You're not alone</h4>
+								<p>Michael Jackson</p>
 						</div>
-				</a>
-
-				<a href="" class="ListaVista" style="background-image: url('Lista_Electronica.jpg');">
-						<div class="ListaInfo">
-							<h3>Electronic</h3>
-							<h4>7 canciones</h4>
+					</div>
+					<div class="ListaAudio">
+						<div class="FotoListaAudio">
+							<img src="5.jpg">
 						</div>
-				</a>
+						<div class="NombreAudioLista">
+								<h4>89</h4>
+								<p>Eminem y 50 Cent</p>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div id="Publicidad">
