@@ -1,5 +1,10 @@
 /*Rotar imagen para el audio: transform: rotate(-756deg);*/
 /*Generales*/
+@font-face{
+    font-family: 'Teko';
+    src: url('Font/Teko-SemiBold.ttf') format('truetype');
+}
+
 body{
 	background-color: #FBFBFB;
 	font-family: Teko;

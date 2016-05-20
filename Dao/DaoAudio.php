@@ -16,4 +16,22 @@ class DaoAudio {
         $stmt->execute();
     }
     
+    public function BajaAudio(Audio $audio)
+    {
+        $conn = new MySqlCon();
+        $connect=$conn->connect();
+        $stmt=$connect->prepare("call spb_usuario(?,?)");
+        $stmt->bind_param("ii", $audio->getIdAudio(),$audio->getIdUsuario());
+        $stmt->execute();
+    }
+    
+    public function CambioAudio(Audio $audio)
+    {
+        $conn = new MySqlCon();
+        $connect=$conn->connect();
+        $stmt=$connect->prepare("call spc_usuario(?,?,?,?)");
+        $stmt->bind_param("iisi", $audio->getIdAudio(),$audio->getIdUsuario(),$audio->getTitulo(),$audio->getPrecio());
+        $stmt->execute();
+    }
+    
 }
