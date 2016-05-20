@@ -11,8 +11,15 @@
  *
  * @author Ayrton
  */
-class Pagina {
+class Pagina   {
     
+    function __construct($idPagina, $nombre) {
+        $this->idPagina = $idPagina;
+        $this->nombre = $nombre;
+    }
+
+    
+        
     function getIdPagina() {
         return $this->idPagina;
     }
@@ -29,14 +36,10 @@ class Pagina {
         $this->nombre = $nombre;
     }
 
-        
-    function __construct($idPagina, $nombre) {
-        $this->idPagina = $idPagina;
-        $this->nombre = $nombre;
-    }
 
     //put your code here
     private $idPagina;
     private $nombre;
+
     
 }

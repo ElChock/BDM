@@ -11,7 +11,19 @@
  *
  * @author Ayrton
  */
+ 
+
 class Publicidad {
+    
+    function __construct($idPublicidad, $path, $nombre, $idPagina, $idUsuario, $publicidadPagina) {
+        $this->idPublicidad = $idPublicidad;
+        $this->path = $path;
+        $this->nombre = $nombre;
+        $this->idPagina = $idPagina;
+        $this->idUsuario = $idUsuario;
+        $this->publicidadPagina = $publicidadPagina;
+    }
+
     
     function getIdPublicidad() {
         return $this->idPublicidad;
@@ -31,6 +43,10 @@ class Publicidad {
 
     function getIdUsuario() {
         return $this->idUsuario;
+    }
+
+    function getPublicidadPagina() {
+        return $this->publicidadPagina;
     }
 
     function setIdPublicidad($idPublicidad) {
@@ -53,13 +69,8 @@ class Publicidad {
         $this->idUsuario = $idUsuario;
     }
 
-        
-    function __construct($idPublicidad, $path, $nombre, $idPagina, $idUsuario) {
-        $this->idPublicidad = $idPublicidad;
-        $this->path = $path;
-        $this->nombre = $nombre;
-        $this->idPagina = $idPagina;
-        $this->idUsuario = $idUsuario;
+    function setPublicidadPagina($publicidadPagina) {
+        $this->publicidadPagina = $publicidadPagina;
     }
 
     //put your code here
@@ -68,4 +79,6 @@ class Publicidad {
     private $nombre;
     private $idPagina;
     private $idUsuario;
+    private $publicidadPagina;
+    
 }

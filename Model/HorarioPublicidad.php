@@ -13,11 +13,21 @@
  */
 class HorarioPublicidad {
     
-    function __construct($idPublicidad, $dias, $horaFin, $horaInicio) {
+    function __construct($idPublicidad, $dias, $idPagina, $horaFin, $horaInicio) {
         $this->idPublicidad = $idPublicidad;
         $this->dias = $dias;
+        $this->idPagina = $idPagina;
         $this->horaFin = $horaFin;
         $this->horaInicio = $horaInicio;
+    }
+
+    
+    function getIdPagina() {
+        return $this->idPagina;
+    }
+
+    function setIdPagina($idPagina) {
+        $this->idPagina = $idPagina;
     }
 
     function getHoraInicio() {
@@ -55,6 +65,7 @@ class HorarioPublicidad {
         //put your code here
     private $idPublicidad;
     private $dias;
+    private $idPagina;
     private $horaFin;
     private $horaInicio;
 }
