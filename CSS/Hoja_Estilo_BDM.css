@@ -2,7 +2,7 @@
 /*Generales*/
 @font-face{
     font-family: 'Teko';
-    src: url('Font/Teko-SemiBold.ttf') format('truetype');
+    src: url('../Font/Teko-SemiBold.ttf') format('truetype');
 }
 
 body{
@@ -194,8 +194,8 @@ textarea{
 
 /*Página de inicio*/
 .AudioVista{
-	background-color: gray;
-	background-repeat: round;
+    background-color: #DFE1BE;
+    background-repeat: round;
     border-radius: 30px;
     display: -webkit-inline-box;
     height: 200px;
@@ -213,7 +213,7 @@ textarea{
 }
 .AudioInfo h3{
 	font-size: 35px;
-	margin-top: 25%;
+	margin-top: 3%;
 }
 .AudioInfo h4{
 	font-size: 28px;
@@ -457,7 +457,7 @@ textarea{
 #TVP_Video{
     width: 50%;
 }
-#TVP_Video img, video{
+#TVP_Video img, #TVP_Video video{
     width: 100%;
 }
 #TVP_Horarios{
@@ -523,4 +523,14 @@ textarea{
 }
 .ListaInfo h4{
     font-size: 18px;
+}
+
+#BusquedaAvanzada{
+    background-color: #BE2F2F;
+    display: none;
+    position: fixed;
+    top: 66px;
+    width: 100%;
+    z-index: 10;
+    padding-left: 20px;
 }

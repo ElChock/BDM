@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Audio
- *
- * @author Ayrton
- */
 class Audio {
     
     function getIdAudio() {
@@ -31,6 +20,14 @@ class Audio {
 
     function getPath() {
         return $this->path;
+    }
+    
+    function getfechaAlta() {
+        return $this->fechaAlta;
+    }
+    
+    function getnombreUsuario() {
+        return $this->nombreUsuario;
     }
 
     function setIdAudio($idAudio) {
@@ -53,13 +50,22 @@ class Audio {
         $this->path = $path;
     }
 
+    function setnombreUsuario($nombreUsuario) {
+        $this->nombreUsuario = $nombreUsuario;
+    }
+    
+    function setfechaAlta($fechaAlta) {
+        $this->fechaAlta = $fechaAlta;
+    }
         
-    function __construct($idAudio, $idUsuario, $titulo, $precio, $path) {
+    function __construct($idAudio, $idUsuario, $titulo, $precio, $path, $fechaAlta, $nombreUsuario) {
         $this->idAudio = $idAudio;
         $this->idUsuario = $idUsuario;
         $this->titulo = $titulo;
         $this->precio = $precio;
         $this->path = $path;
+        $this->fechaAlta=$fechaAlta;
+        $this->nombreUsuario = $nombreUsuario;
     }
 
     private $idAudio;
@@ -67,5 +73,7 @@ class Audio {
     private $titulo;
     private $precio;
     private $path;
+    private $fechaAlta;
+    private $nombreUsuario;
     //put your code here
 }
