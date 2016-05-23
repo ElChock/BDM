@@ -42,8 +42,6 @@ class DaoPais {
               }
              
           }
-           
-
            return $listPais;
     }
 }

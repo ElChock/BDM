@@ -72,7 +72,6 @@ class Publicidad {
         $this->publicidadPagina = $publicidadPagina;
     }
 
-    //put your code here
     private $idPublicidad;
     private $path;
     private $nombre;

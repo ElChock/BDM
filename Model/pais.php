@@ -11,7 +11,8 @@
  *
  * @author Ayrton
  */
-class pais {  
+class pais {
+    
     function getIdPais() {
         return $this->idPais;
     }
@@ -52,7 +53,6 @@ class pais {
         $this->impuesto = $impuesto;
     }
 
-    //put your code here
     private $idPais;
     private $codigo;
     private $pais;

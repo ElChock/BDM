@@ -206,8 +206,7 @@
                                                 
                                                 Pagina<select class="Selecciona" name="Pagina">
                                                     <?php
-                            
-                                                    
+                                                                               
                                                         for ($index =0; $index<count($listaPaginas);$index++)
                                                         {
                                                              echo "<option value="; echo $listaPaginas[$index]->getIdPagina(); echo ">"; echo $listaPaginas[$index]->getNombre(); echo"</option>";

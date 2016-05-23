@@ -16,9 +16,7 @@ class Pagina   {
         $this->idPagina = $idPagina;
         $this->nombre = $nombre;
     }
-
     
-        
     function getIdPagina() {
         return $this->idPagina;
     }
@@ -35,8 +33,6 @@ class Pagina   {
         $this->nombre = $nombre;
     }
 
-
-    //put your code here
     private $idPagina;
     private $nombre;
 

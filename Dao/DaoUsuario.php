@@ -14,6 +14,7 @@
 require_once 'MySqlCon.php';
 
 class DaoUsuario {
+    
     public function AltaUsuario(Usuario $usuario)
     {
 

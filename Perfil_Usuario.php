@@ -84,8 +84,7 @@ if(empty($pathPublicidad))
                                  
                                 }
 
-                            ?>
-                            
+                            ?>                           
 			</select>
      
 			<select style="margin-right: 20px; width:160px;" title="Mes" name="mes">

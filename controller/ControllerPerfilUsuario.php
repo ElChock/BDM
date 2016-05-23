@@ -168,7 +168,6 @@ if ($_SERVER["REQUEST_METHOD"]== "POST")
         $idUsuario=$_SESSION["idUsuario"];
         $daoUsuario->ActualizarFotoPerfil($idUsuario, $imagen);
     }
-
 header('Location: ../Perfil_usuario.php');
 }
 

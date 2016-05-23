@@ -169,8 +169,6 @@ class Usuario {
     function setTipoUsuario($tipoUsuario) {
         $this->tipoUsuario = $tipoUsuario;
     }
-
-        //put your code here
    
     private $idUsuario;
     private $correo;

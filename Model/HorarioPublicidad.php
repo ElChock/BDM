@@ -62,7 +62,6 @@ class HorarioPublicidad {
         $this->horaFin = $horaFin;
     }
 
-        //put your code here
     private $idPublicidad;
     private $dias;
     private $idPagina;

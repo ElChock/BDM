@@ -61,10 +61,6 @@ class publicidadPagina {
         $this->dia = $dia;
     }
 
-        
-
-
-        //put your code here
     private $idPublicidad;
     private $idPagina;
     private $horaInicio;

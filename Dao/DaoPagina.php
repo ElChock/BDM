@@ -16,7 +16,6 @@ require_once '/../Model/Pagina.php';
 require_once '/xampp/htdocs/CafeVinil/Model/Pagina.php';
 
 class DaoPagina   {
-  
     function BuscarPagina()
     {
         $conn = new MySqlCon();
@@ -40,8 +39,5 @@ class DaoPagina   {
                $contador++;
            }
            return $listPagina;
-
     }
-
-
 }

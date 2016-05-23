@@ -89,9 +89,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
                  echo $publicidadPagina->getDia();
         $daoPublicidadPagina->actualizarPublicidadPagina($publicidadPagina);
     }
-
 }
-
 header('Location: ../Subir_Videos_Publicitarios.php');
 
 
