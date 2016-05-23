@@ -14,7 +14,7 @@
 require_once '../Model/HorarioPublicidad.php';
 require_once 'MySqlCon.php';
 class DaoHorarioPublicidad {
-    //put your code here
+ 
     function altaHorarioPublicidad(HorarioPublicidad $horarioPublicidad)
     {
         $conn = new MySqlCon();

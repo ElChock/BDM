@@ -11,7 +11,6 @@
             $listaPublicidad=$DaoPublicidad->buscarVideo();
             
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>

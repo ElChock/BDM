@@ -14,6 +14,7 @@
 require_once 'MySqlCon.php';
 require_once '/../Model/Pagina.php';
 require_once '/xampp/htdocs/CafeVinil/Model/Pagina.php';
+
 class DaoPagina   {
     //put your code here
     function BuscarPagina()

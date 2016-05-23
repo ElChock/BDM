@@ -13,7 +13,7 @@
  */
 include_once '/xampp/htdocs/CafeVinil/Model/PublicidadPagina.php';
 class DaoPublicidadPagina {
-    //put your code here
+   
     function AltaPublicidadPagina(publicidadPagina $publicidadPagina)
     {
         $conn = new MySqlCon();

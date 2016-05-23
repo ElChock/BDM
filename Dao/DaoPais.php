@@ -13,7 +13,8 @@
  */
 
 class DaoPais {
-    //put your code here
+
+    
     function obtenerPais()
     {
         $conn = new MySqlCon();

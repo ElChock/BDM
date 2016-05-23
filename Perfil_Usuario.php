@@ -29,7 +29,7 @@ if(empty($pathPublicidad))
 {
     $pathPublicidad="City.mp4";
 }
-$NickName="";
+
 ?>
 
 <!DOCTYPE html>
