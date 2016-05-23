@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<title>Cafe Vinyl</title>
-		<link rel="stylesheet" type="text/css" href="Hoja_Estilo_BDM.css">
+                <link rel="stylesheet" type="text/css" href="CSS/Hoja_Estilo_BDM.css">
 		<meta charset="UTF-8">
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  		<script src="Table_Plugin/stupidtable.js?dev"></script>
-		<script src="Codigo_Javascript_BDM.js"></script>
+                <script src="Paginas Proyecto BDM/Table_Plugin//Table_Plugin/stupidtable.js?dev"></script>
+                <script src="JS/Codigo_Javascript_BDM.js"></script>
 		<script>
 		    $(function(){
 		        $("table").stupidtable();
@@ -18,12 +18,12 @@
 	<body>
 		<div id="Encabezado">
 			<div id="Logotipo">
-				<a href="Pagina_Inicio.html">
-					<img src="CafeVinyl.png">
+				<a href="Pagina_Inicio.php">
+                                    <img src="Imagenes/CafeVinyl.png">
 				</a>
 			</div>
 			<div id="BusquedaAudio">
-				<form action="Pagina_Inicio.html" method="get">
+				<form action="Pagina_Inicio.php" method="get">
 					<input type="text" placeholder="Buscar audio..." name="BuscarAudio">
 				</form>
 			</div>
@@ -32,20 +32,20 @@
 				<h2>Benjamin</h2>
 			</div>
 			<div id="FotoUsuario" onmouseover="Desplegar()" onmouseout="Minimizar()">
-				<img src="user.png" >
+                            <img src="Imagenes/user.png" >
 			</div>
 			<div id="OpcionesUsuario" onmouseover="Desplegar()" onmouseout="Minimizar()">
-				<img src="Pestaña.png">
+                            <img src="Imagenes/Pestaña.png">
 			</div>
 
 			<div id="MenuOpciones" onmouseover="Desplegar()" onmouseout="Minimizar()">
 				<a href=""><div class="OpcionMenu">Administrar audios</div></a>
-				<a href="Carrito_Compras.html"><div class="OpcionMenu">Carrito de compras</div></a>
-				<a href="Perfil_Usuario.html"><div class="OpcionMenu">Mi perfil</div></a>
-				<a href="Usuario_Listas.html"><div class="OpcionMenu">Mis listas</div></a>
-				<a href="Subir_Audio.html"><div class="OpcionMenu">Subir audio</div></a>
-				<a href="Reporte_Ventas.html"><div class="OpcionMenu">Reporte de ventas</div></a>
-				<a href="Subir_Videos_Publicitarios.html"><div class="OpcionMenu">Publicidad</div></a>			</div>
+				<a href="Carrito_Compras.php"><div class="OpcionMenu">Carrito de compras</div></a>
+				<a href="Perfil_Usuario.php"><div class="OpcionMenu">Mi perfil</div></a>
+				<a href="Usuario_Listas.php"><div class="OpcionMenu">Mis listas</div></a>
+				<a href="Subir_Audio.php"><div class="OpcionMenu">Subir audio</div></a>
+				<a href="Reporte_Ventas.php"><div class="OpcionMenu">Reporte de ventas</div></a>
+				<a href="Subir_Videos_Publicitarios.php"><div class="OpcionMenu">Publicidad</div></a>			</div>
 		</div>
 
 		<div id="EspacioContenido">
@@ -69,7 +69,7 @@
 				    </thead>
 				    <tbody>
 				      <tr>
-				        <td><a href="Pagina_Audio.html">You're not alone</a></td>
+				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
 				        <td>16/05/2016</a></td>
 				        <td>$49.00</td>
 				        <td>10%</td>
@@ -81,7 +81,7 @@
 				        <td>1234</td>
 				      </tr>
 				      <tr>
-				        <td><a href="Pagina_Audio.html">You're not alone</a></td>
+				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
 				        <td>16/05/2016</a></td>
 				        <td>$49.00</td>
 				        <td>10%</td>
@@ -93,7 +93,7 @@
 				        <td>1234</td>
 				      </tr>
 				      <tr>
-				        <td><a href="Pagina_Audio.html">You're not alone</a></td>
+				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
 				        <td>16/05/2016</a></td>
 				        <td>$49.00</td>
 				        <td>10%</td>
@@ -126,7 +126,7 @@
 				    </thead>
 				    <tbody>
 				      <tr>
-				        <td><a href="Pagina_Audio.html">You're not alone</a></td>
+				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
 				        <td>16/05/2016</a></td>
 				        <td>$49.00</td>
 				        <td>10%</td>
@@ -138,7 +138,7 @@
 				        <td>1234</td>
 				      </tr>
 				      <tr>
-				        <td><a href="Pagina_Audio.html">You're not alone</a></td>
+				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
 				        <td>16/05/2016</a></td>
 				        <td>$49.00</td>
 				        <td>10%</td>
