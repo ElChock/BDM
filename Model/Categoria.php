@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Categoria
- *
- * @author Ayrton
- */
 class Categoria {
     
     function __construct($idCategoria, $nombreCategoria) {
@@ -35,7 +24,6 @@ class Categoria {
         $this->nombreCategoria = $nombreCategoria;
     }
 
-        private $idCategoria;
+    private $idCategoria;
     private $nombreCategoria;
-    //put your code here
 }

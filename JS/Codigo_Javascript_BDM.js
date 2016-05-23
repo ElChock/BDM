@@ -34,6 +34,16 @@ function Minimizar() {
 	document.getElementById("MenuOpciones").style.display="none";
 }
 
+function DesplegarBusquedaAvanzada() {
+	var x=document.getElementById("BusquedaAvanzada");
+	if(x.style.display=="none")
+	{
+		document.getElementById("BusquedaAvanzada").style.display="block";
+	} else{
+		document.getElementById("BusquedaAvanzada").style.display="none";
+	}
+}
+
 function MostrarEditorInformacionPersonal(){
 	document.getElementById("EdicionInformacionPersonal").style.display= "block";
 	document.getElementById("InformacionPersonal").style.display="none";
