@@ -8,7 +8,6 @@ include_once './Model/Usuario.php';
 include_once './Dao/DaoPais.php';
 include_once './Model/pais.php';
 
-
 session_start();
 $usuario=new Usuario(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 if(!empty($_SESSION["idUsuario"]))
@@ -29,7 +28,6 @@ if(empty($pathPublicidad))
 {
     $pathPublicidad="City.mp4";
 }
-
 ?>
 
 <!DOCTYPE html>

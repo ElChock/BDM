@@ -11,8 +11,7 @@
  *
  * @author Ayrton
  */
-class pais {
-    
+class pais {  
     function getIdPais() {
         return $this->idPais;
     }

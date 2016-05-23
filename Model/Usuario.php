@@ -11,11 +11,7 @@
  *
  * @author Ayrton
  */
-class Usuario {
-    
-    
-
-    
+class Usuario {  
     function __construct($idUsuario, $correo, $contraseña, $nombre, $apellidoMaterno, $apellidoPaterno, $alias, $fotoPerfil, $fotoPortada, $fechaNacimiento, $calle, $numero, $codigoPostal, $colonia, $idPais, $genero, $tipoUsuario) {
         $this->idUsuario = $idUsuario;
         $this->correo = $correo;

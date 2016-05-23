@@ -15,8 +15,7 @@ $publicidad = new Publicidad(NULL,NULL,NULL,NULL,NULL,NULL);
 $horarioPublicidad = new HorarioPublicidad(NULL, NULL, NULL, NULL,NULl);
 $publicidadPagina = new publicidadPagina(NULL,NULL,NULL,NULL,NULL);
 $daoPublicidadPagina = new DaoPublicidadPagina();
-           // header('Location: ../Subir_Videos_Publicitarios.php');
-define('MB', 1048576);
+           
 
 if($_SERVER["REQUEST_METHOD"]== "POST")
 {

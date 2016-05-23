@@ -14,7 +14,6 @@
 require_once 'MySqlCon.php';
 require_once '/xampp/htdocs/CafeVinil/Model/Publicidad.php';
 class DaoPublicidad {
- 
     function altaVideo(Publicidad $publicidad)
     {
         $conn = new MySqlCon();

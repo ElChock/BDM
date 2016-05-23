@@ -11,8 +11,7 @@
  *
  * @author Ayrton
  */
-class Pagina   {
-    
+class Pagina   {   
     function __construct($idPagina, $nombre) {
         $this->idPagina = $idPagina;
         $this->nombre = $nombre;

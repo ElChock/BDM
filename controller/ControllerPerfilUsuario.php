@@ -11,6 +11,7 @@ $nameErr="";
 //$user = Usuario;
 $usuario = new Usuario(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 $daoUsuario = new DaoUsuario();
+
 if ($_SERVER["REQUEST_METHOD"]== "POST")
 {
     if(!empty(($_POST["Registro"])))

@@ -11,8 +11,7 @@
  *
  * @author Ayrton
  */
-class publicidadPagina {
-    
+class publicidadPagina {  
     function __construct($idPublicidad, $idPagina, $horaInicio, $horaFin, $dia) {
         $this->idPublicidad = $idPublicidad;
         $this->idPagina = $idPagina;

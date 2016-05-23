@@ -206,6 +206,7 @@
                                                 
                                                 Pagina<select class="Selecciona" name="Pagina">
                                                     <?php
+                            
                                                     
                                                         for ($index =0; $index<count($listaPaginas);$index++)
                                                         {

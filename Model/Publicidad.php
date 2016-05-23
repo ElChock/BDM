@@ -13,8 +13,7 @@
  */
  
 
-class Publicidad {
-    
+class Publicidad {  
     function __construct($idPublicidad, $path, $nombre, $idPagina, $idUsuario, $publicidadPagina) {
         $this->idPublicidad = $idPublicidad;
         $this->path = $path;

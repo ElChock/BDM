@@ -12,9 +12,7 @@
  * @author Ayrton
  */
 
-class DaoPais {
-
-    
+class DaoPais {   
     function obtenerPais()
     {
         $conn = new MySqlCon();

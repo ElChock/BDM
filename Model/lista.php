@@ -11,8 +11,7 @@
  *
  * @author Ayrton
  */
-class lista {
-    
+class lista {  
     function getIdlista() {
         return $this->idlista;
     }
