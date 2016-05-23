@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
 {
     if(!empty($_POST["video"]))
     {
-        if(empty($_FILES["video"]))
+        if(!empty($_FILES["video"]))
         {
             if($_FILES["video"]['error'] )
             {
@@ -93,6 +93,6 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
 
 }
 
-//header('Location: ../Subir_Videos_Publicitarios.php');
+header('Location: ../Subir_Videos_Publicitarios.php');
 
 

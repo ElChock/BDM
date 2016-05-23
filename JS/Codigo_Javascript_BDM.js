@@ -5,6 +5,19 @@ function AbrirRegistroUsuario(){
 	document.getElementById("RegistroUsuario").style.zIndex= 1001;
 	document.getElementById("RegistroUsuario").style.visibility= "visible";
 }
+function AbrirInicioSesionUsuario(){
+	document.getElementById("EspacioGris").style.zIndex= 1000;
+	document.getElementById("EspacioGris").style.visibility= "visible";
+	document.getElementById("InicioSesionUsuario").style.zIndex= 1001;
+	document.getElementById("InicioSesionUsuario").style.visibility= "visible";
+}
+
+function CerrarInicioSesionUsuario(){
+	document.getElementById("EspacioGris").style.zIndex= -1000;
+	document.getElementById("EspacioGris").style.visibility= "hidden";
+	document.getElementById("InicioSesionUsuario").style.zIndex= -1001;
+	document.getElementById("InicioSesionUsuario").style.visibility= "hidden";
+}
 
 function CerrarRegistroUsuario(){
 	document.getElementById("EspacioGris").style.zIndex= -1000;
