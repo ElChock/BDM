@@ -326,7 +326,7 @@ textarea{
 
 /*Página de audio*/
 .DiscoVinilo{
-    background-image: url('Disco_Vinilo_Plantilla.png');
+    background-image: url('../Imagenes/Disco_Vinilo_Plantilla.png');
     background-repeat: round;
     cursor: pointer;
     display: inline-block;
@@ -443,7 +443,7 @@ textarea{
 /*Subir audio*/
 .SubirImagenAudio{
     background-color: white;
-    background-image: url('Carga.png');
+    background-image: url('../Imagenes/Carga.png');/*../Font/Teko-SemiBold.ttf*/
     background-repeat: round;
     cursor: pointer;
     display: inline-block;
@@ -479,7 +479,7 @@ textarea{
     padding-top: 20px;
     font-size: 25px;
 }
-#BuscarVideosPromocionales p, select{
+#BuscarVideosPromocionales p, #BuscarVideosPromocionales select{
     display: inline-block;
     margin-left: 20px;
 }

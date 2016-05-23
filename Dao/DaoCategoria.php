@@ -17,13 +17,13 @@ class DaoCategoria   {
            } 
            $stmt=$connect->prepare("call sp_buscarCategorias()");
            $stmt->execute();
-           $stmt->bind_result();
+           $stmt->bind_result($idCategoria,$nombre);
                $contador=0;
            while ($stmt->fetch())
            {
                $categoria = new Categoria(NULL, NULL);
-               $categoria->setNombreCategoria($nombre);
                $categoria->setIdCategoria($idCategoria);
+               $categoria->setNombreCategoria($nombre);
                $listCategorias[$contador]=$categoria;
                $contador++;
            }

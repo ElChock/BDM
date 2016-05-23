@@ -29,6 +29,14 @@ class Audio {
     function getnombreUsuario() {
         return $this->nombreUsuario;
     }
+    
+    function getGenero() {
+        return $this->genero;
+    }
+    
+    function getCategoria() {
+        return $this->categoria;
+    }
 
     function setIdAudio($idAudio) {
         $this->idAudio = $idAudio;
@@ -57,8 +65,16 @@ class Audio {
     function setfechaAlta($fechaAlta) {
         $this->fechaAlta = $fechaAlta;
     }
+    
+    function setGenero($genero) {
+        $this->genero = $genero;
+    }
+    
+    function setCategoria($categoria) {
+        $this->categoria = $categoria;
+    }
         
-    function __construct($idAudio, $idUsuario, $titulo, $precio, $path, $fechaAlta, $nombreUsuario) {
+    function __construct($idAudio, $idUsuario, $titulo, $precio, $path, $fechaAlta, $nombreUsuario, $genero, $categoria) {
         $this->idAudio = $idAudio;
         $this->idUsuario = $idUsuario;
         $this->titulo = $titulo;
@@ -66,6 +82,8 @@ class Audio {
         $this->path = $path;
         $this->fechaAlta=$fechaAlta;
         $this->nombreUsuario = $nombreUsuario;
+        $this->genero = $genero;
+        $this->categoria = $categoria;
     }
 
     private $idAudio;
@@ -75,5 +93,10 @@ class Audio {
     private $path;
     private $fechaAlta;
     private $nombreUsuario;
+    private $genero;
+    private $categoria;
+    public $nombregenero;
+    public $nombrecategoria;
+    //public $Audio;
     //put your code here
 }

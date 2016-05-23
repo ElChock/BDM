@@ -6,13 +6,25 @@ class DaoAudio {
     
     public function AltaAudio(Audio $audio)
     {
-        //Subir el archivo a la carpeta de audios       
-        //Subir a la base de datos
         $conn = new MySqlCon();
         $connect=$conn->connect();
-        $stmt=$connect->prepare("call spa_usuario(?,?,?,?)");
-        $stmt->bind_param("isis", $audio->getUsuario(),$audio->getTitulo(),$audio->getPrecio(),$audio->getPath());
-        $stmt->execute();
+        
+        if(mysqli_connect_errno())
+        {
+            printf("Error de conexión: %s\n", mysqli_connect_error());
+        } else{
+            $stmt=$connect->prepare("call spa_Audio(?,?,?,?,?,?)");
+            echo "prepare";
+            $stmt->bind_param("isisii", $audio->getIdUsuario(),$audio->getTitulo(),$audio->getPrecio(),$audio->getPath(),$audio->getGenero(),$audio->getCategoria());
+            echo "bind param";
+            if($stmt->execute()){
+                $result=$connect->query("SELECT LAST_INSERT_ID()");
+                $id = mysqli_fetch_assoc($result);
+            } else {
+                echo "Error al ejecutar query: spa_Audio";
+            }
+        }
+        return $id["LAST_INSERT_ID()"];
     }
     
     public function BajaAudio(Audio $audio)
@@ -25,7 +37,6 @@ class DaoAudio {
     }
     
     public function BuscarAudio($FechaInicio, $FechaFin, $TituloAudio, $AliasUsuario){
-        //spe_AudioBusqueda
         $listAudios=array();
         $conn = new MySqlCon();
         $connect=$conn->connect();
@@ -59,6 +70,44 @@ class DaoAudio {
         return $listAudios;
     }
     
+    public function ExtraerAudio($idAudio){
+        $conn = new MySqlCon();
+        $connect=$conn->connect();
+        
+        if(mysqli_connect_errno())
+        {
+            printf("Error de conexión: %s\n", mysqli_connect_error());
+        } else{
+            $stmt=$connect->prepare("call sp_ExtraerAudio(?)");
+            $stmt->bind_param("i", $idAudio);
+            if($stmt->execute()){
+                //idaudio, audio.idusuario, usuario.allias ,titulo, precio, path,
+                //fechaAlta, audio.idgenero, genero.nombregenero, audio.idcategoria, categoria.nombrecategoria
+                $stmt->bind_result($idAudio,$idusuario,$allias,$titulo,$precio,$path,$fechaAlta,$idgenero,$nombregenero,$idcategoria,$nombrecategoria);
+                $contador=0;
+                while ($stmt->fetch())
+                {   
+                    $audio = new Audio(NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+                    //$audio = new Audio($idAudio,$titulo,$precio,$path,$fechaAlta,$alias);
+                    $audio->setIdAudio($idAudio);
+                    $audio->setIdUsuario($idusuario);
+                    $audio->setnombreUsuario($allias);
+                    $audio->setTitulo($titulo);
+                    $audio->setPrecio($precio);
+                    $audio->setPath($path);
+                    $audio->setfechaAlta($fechaAlta);
+                    $audio->setGenero($idgenero);
+                    $audio->nombregenero=$nombregenero;
+                    $audio->setCategoria($idcategoria);
+                    $audio->nombrecategoria=$nombrecategoria;
+                }
+            } else {
+                echo "Error al ejecutar query: sp_ExtraerAudio";
+            }
+        }
+        return $audio;
+    }
+
     public function CambioAudio(Audio $audio)
     {
         $conn = new MySqlCon();
