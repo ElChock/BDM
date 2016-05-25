@@ -15,7 +15,9 @@ if(!empty($_SESSION["idUsuario"]))
  $idUsuario =$_SESSION["idUsuario"] ;
  
 $daoUsuario=new DaoUsuario();
-$usuario= $daoUsuario->ObtenerUsuarioId($idUsuario);  
+$usuario= $daoUsuario->ObtenerUsuarioId($idUsuario);
+
+echo $usuario->getNombre();
 }
 
 $daoPais = new DaoPais();
@@ -274,12 +276,12 @@ if(empty($pathPublicidad))
 				<div class="AudioVista" style="background-image: url('9.jpg');"></div>
 			</div>
 			<div id="Publicidad">
-				<video autoplay loop muted>
+				<!--Descomentar luego--> <!--<video autoplay loop muted>
                                     <?php
-                                    echo "<source src=Videos/"; echo $pathPublicidad;echo " type=video/mp4> ";
+                                    //echo "<source src=Videos/"; echo $pathPublicidad;echo " type=video/mp4> ";
                                     ?>
 					Este browser no acepta videos
-				</video>
+				</video>-->
 				<img src="Imagenes/CafeVinyl1.jpg" style="width: 70%; height: 70%">
 			</div>
 		</div>

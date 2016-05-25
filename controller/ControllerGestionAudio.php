@@ -1,16 +1,11 @@
 <?php
 
+require_once "../Dao/DaoComentario.php";
 require_once '../Dao/DaoAudio.php';
 require_once '../Model/Audio.php';
-//require_once '../Dao/DaoCategoria.php';
-//require_once '../Dao/DaoGenero.php';
 
 $DaoAudio = new DaoAudio();
 $audio = new Audio(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-
-//$audiocategoria = new AudioCategoria(NULL, NULL);
-//$audiogenero = new AudioGenero(NULL, NULL);
-//$daoPublicidadPagina = new DaoPublicidadPagina();
 
 if($_SERVER["REQUEST_METHOD"]== "POST")
 {

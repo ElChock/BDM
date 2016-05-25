@@ -170,4 +170,3 @@ if ($_SERVER["REQUEST_METHOD"]== "POST")
     }
 header('Location: ../Perfil_usuario.php');
 }
-

@@ -251,7 +251,7 @@ textarea{
 }
 #RegistroUsuario{
     background-color: #F2F2F2;
-    background-image: url('Fondo_Registro_Usuario.jpg');
+    background-image: url('../Imagenes/Fondo_Registro_Usuario.jpg');
     background-repeat: round;
     border-radius: 15px;
     height: 390px;
@@ -267,10 +267,10 @@ textarea{
 
 #InicioSesionUsuario{
     background-color: #F2F2F2;
-    background-image: url('Fondo_Registro_Usuario.jpg');
+    background-image: url('../Imagenes/Fondo_Registro_Usuario.jpg');
     background-repeat: round;
     border-radius: 15px;
-    height: 390px;
+    height: 200px;
     padding: 3%;
     padding-top: 0px;
     position: fixed;
@@ -280,9 +280,9 @@ textarea{
     width: 44%;
     z-index: 1001;
 }
-#RegistroUsuario img{
-	cursor: pointer;
-	left: 78%;
+#RegistroUsuario img, #InicioSesionUsuario img{
+    cursor: pointer;
+    left: 94%;
     position: relative;
     top: 10px;
     width: 30px;
@@ -367,6 +367,7 @@ textarea{
 }
 .UsuarioLink{
     color: red;
+    display: inline;
 }
 .AudioInfoCompleta h2{
     font-size: 30px;

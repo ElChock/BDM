@@ -22,7 +22,8 @@ class DaoUsuario {
         $connect=$conn->connect();
         $stmt=$connect->prepare("call spa_usuario(? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("issssssbbssiisiss", $usuario->getCorreo(),sha1($usuario->getContraseña()),$usuario->getNombre(),$usuario->getApellidoMaterno(),$usuario->getApellidoPaterno(),$usuario->getFotoPerfil(),$usuario->getFotoPortada(),$usuario->getFechaNacimiento(),$usuario->getCalle(),$usuario->getNumero(),$usuario->getCodigoPostal(),$usuario->getColonia(),$usuario->getIdPais(),$usuario->getGenero(),$usuario->getTipoUsuario());
-        $stmt->execute();
+        if($stmt->execute()){}
+        else{echo "error al ejecutar spa_usuario";}
                 
     }
     public function AltaUsuarioRapido(Usuario $usuario)

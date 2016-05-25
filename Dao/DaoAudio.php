@@ -1,6 +1,7 @@
 <?php
 
 require_once 'MySqlCon.php';
+require_once './Model/Audio.php';
 //require_once '../Model/Usuario.php';
 class DaoAudio {
     

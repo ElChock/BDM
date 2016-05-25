@@ -1,28 +1,17 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of ComentarioAudio
- *
- * @author Ayrton
- */
 class ComentarioAudio {
     
     function getIdComentario() {
-        return $this->idComentario;
+        return $this->idcomentario;
     }
 
     function getIdUsuario() {
-        return $this->idUsuario;
+        return $this->idusuario;
     }
 
     function getIdAudio() {
-        return $this->idAudio;
+        return $this->idaudio;
     }
 
     function getFecha() {
@@ -32,17 +21,21 @@ class ComentarioAudio {
     function getComentario() {
         return $this->comentario;
     }
-
-    function setIdComentario($idComentario) {
-        $this->idComentario = $idComentario;
+    
+    function getNombreUsurio() {
+        return $this->nombreusuario;
     }
 
-    function setIdUsuario($idUsuario) {
-        $this->idUsuario = $idUsuario;
+    function setIdComentario($idcomentario) {
+        $this->idcomentario = $idcomentario;
     }
 
-    function setIdAudio($idAudio) {
-        $this->idAudio = $idAudio;
+    function setIdUsuario($idusuario) {
+        $this->idusuario = $idusuario;
+    }
+
+    function setIdAudio($idaudio) {
+        $this->idaudio = $idaudio;
     }
 
     function setFecha($fecha) {
@@ -52,20 +45,25 @@ class ComentarioAudio {
     function setComentario($comentario) {
         $this->comentario = $comentario;
     }
-
-        
-    function __construct($idComentario, $idUsuario, $idAudio, $fecha, $comentario) {
-        $this->idComentario = $idComentario;
-        $this->idUsuario = $idUsuario;
-        $this->idAudio = $idAudio;
-        $this->fecha = $fecha;
-        $this->comentario = $comentario;
+    
+    function setNombreUsuario($nombreusuario) {
+        $this->nombreusuario = $nombreusuario;
     }
 
-    //put your code here
-    private $idComentario;
-    private $idUsuario;
-    private $idAudio;
+        
+    function __construct($idcomentario, $idusuario, $idaudio, $fecha, $comentario, $nombreusuario) {
+        $this->idcomentario = $idcomentario;
+        $this->idUsuario = $idusuario;
+        $this->idAudio = $idaudio;
+        $this->fecha = $fecha;
+        $this->comentario = $comentario;
+        $this->nombreUsuario = $nombreusuario;
+    }
+
+    private $idcomentario;
+    private $idusuario;
+    private $idaudio;
     private $fecha;
     private $comentario;
+    private $nombreusuario;
 }

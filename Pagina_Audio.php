@@ -2,12 +2,17 @@
             error_reporting(0);
             include_once './Dao/DaoAudio.php';
             include_once './Model/Audio.php';
+            include_once './Dao/DaoComentario.php';
+            include_once './Model/ComentarioAudio.php';
            session_start();
+           //GET Idperfil;
             $DaoAudio = new DaoAudio();
+            $DaoComentario = new DaoComentario();
             $Audio=new Audio(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
             $idaudio=htmlspecialchars($_GET["IdAudio"]);
             if(!empty($idaudio)){
                 $Audio=$DaoAudio->ExtraerAudio($idaudio);
+                $listaComentarios=$DaoComentario->BuscarComentarios($idaudio);
             }
 ?>
 
@@ -47,7 +52,7 @@
 			<div id="MenuOpciones" onmouseover="Desplegar()" onmouseout="Minimizar()">
 				<a href=""><div class="OpcionMenu">Administrar audios</div></a>
 				<a href="Carrito_Compras.php"><div class="OpcionMenu">Carrito de compras</div></a>
-				<a href="Perfil_Usuario.php"><div class="OpcionMenu">Mi perfil</div></a>
+				<a href="Perfil_Usuario.php?idusuarioperfil=<?php //echo Idperfil?>"><div class="OpcionMenu">Mi perfil</div></a>
 				<a href="Usuario_Listas.php"><div class="OpcionMenu">Mis listas</div></a>
 				<a href="Subir_Audio.php"><div class="OpcionMenu">Subir audio</div></a>
 				<a href="Reporte_Ventas.php"><div class="OpcionMenu">Reporte de ventas</div></a>
@@ -107,18 +112,21 @@
 				</div>
 				<h1 style="font-size: 50px;">Comentarios</h1>
 				<div id="Comentarios">
-					<div class="Comentario">
-						<div class="FotoUsuarioComentario">
-                                                    <a href="Perfil_Usuario.php"><img src="Imagenes/user_old.png"></a>
-						</div>
-						<div class="NombreUsuarioComentario">
-							<p><a href="Perfil_Usuario.php" class="UsuarioLink">Nelson</a> Always a lovely song</p>
-						</div>
-					</div>
+                                    <?php
+                                        for($index =0;$index<count($listaComentarios);$index++)
+                                        {
+                                            echo "<div class=\"Comentario\"><div class=\"FotoUsuarioComentario\"><a href=\"Perfil_Usuario.php\"><img src=\"Imagenes/user_old.png\"></a></div>";
+                                            echo "<div class=\"NombreUsuarioComentario\"><p><a href=\"Perfil_Usuario.php?Idperfil="; echo $listaComentarios[$index]->getIdUsuario(); echo "\" class=\"UsuarioLink\">"; echo $listaComentarios[$index]->getNombreUsurio();echo ": \t</a>";
+                                            echo $listaComentarios[$index]->getComentario(); echo "</p></div></div>";
+                                        }
+                                    ?>
 				</div> <br>
-				<form  action="Pagina_Audio.php" method="get">
-					<textarea title="Puedes comentar aqui..." placeholder="Puedes comentar aqui..." name="ComentarioNuevo" style="margin-bottom:20px; width: 97.6%;"></textarea>
-					<input type="submit" value="Comentar">
+                                <form  action="controller/ControllerGestionComentario.php" method="get">
+                                    <input type="number" value="0" name="IdComentario" style="display: none;">
+                                    <input type="number" value="4" name="IdUsuario" style="display: none;">
+                                    <input type="number" value="<?php echo $Audio->getIdAudio();?>" name="IdAudio" style="display: none;">
+                                    <textarea title="Puedes comentar aqui..." placeholder="Puedes comentar aqui..." name="ComentarioTexto" style="margin-bottom:20px; width: 97.6%;"></textarea>
+                                    <input type="submit" value="Comentar" class="Boton">
 				</form>
 			</div>
 			<div id="Publicidad">
