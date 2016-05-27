@@ -6,6 +6,9 @@
             include_once './Model/Usuario.php';
             include_once './Dao/DaoPais.php';
             include_once './Model/pais.php';
+            include_once './Dao/DaoPublicidad.php';
+            include_once './Model/Publicidad.php';
+            include_once './Dao/DaoPublicidadPagina.php';
            session_start();
            
            $DaoAudio = new DaoAudio();
@@ -24,19 +27,21 @@
             $usuario=new Usuario(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
             if(!empty($_SESSION["idUsuario"]))
             {
-                $idUsuario =$_SESSION["idUsuario"];
-                $daoUsuario=new DaoUsuario();
-                $usuario= $daoUsuario->ObtenerUsuarioId($idUsuario);
+                if($_SESSION["idUsuario"]!=="0"){
+                    $idUsuario =$_SESSION["idUsuario"];
+                    $daoUsuario=new DaoUsuario();
+                    $usuario= $daoUsuario->ObtenerUsuarioId($idUsuario);
+                }
             }
 
             //Publicidad
-            /*$daoPublicidadPagina= new DaoPublicidadPagina();
-            $publicidad=$daoPublicidadPagina->BuscarPublicidadParaMostrar(5);
+            $daoPublicidadPagina= new DaoPublicidadPagina();
+            $publicidad=$daoPublicidadPagina->BuscarPublicidadParaMostrar(6);
             $pathPublicidad=$publicidad->getPath();
             if(empty($pathPublicidad))
             {
                 $pathPublicidad="City.mp4";
-            }*/
+            }
             
 ?>
 
@@ -52,51 +57,34 @@
 	<body>
             <?php   if(is_null($usuario->getIdUsuario()))   {?>
             <form action="controller/ControllerPerfilUsuario.php" method="post">
-		<div id="InicioSesionUsuario">
-			<!--Opcional
-			inicio de secion
-			-->
-			<!--Este botón alterna el contenido entre Registrate o Iniciar sesión. También alteraría la altura de Registro Usuario (390px-280px)-->
-			<img src="Imagenes/Tacha.png" onclick="CerrarInicioSesionUsuario()">
-			<h1>Unete a la comunidad de Cafe Vinyl</h1>
-			<!--Iniciar sesión solo muestra los campos de correo y contraseña-->
-			<!--Registrarte como usuario-->
-			<input type="text" name="CorreoInicioSesion" placeholder="*Correo" title="*Correo" class="InputCorto" >
-			<input type="password" name="ContrasenaInicioSesion" placeholder="*Contrasena" title="*Contrasena" class="InputCorto" style="margin-right: 0%;">
+		<div id="InicioSesionUsuario" style="z-index: -1001; visibility: hidden;">
+                    <img src="Imagenes/Tacha.png" onclick="CerrarInicioSesionUsuario()">
+                    <h1>Unete a la comunidad de Cafe Vinyl</h1>
+                    <input type="text" name="CorreoInicioSesion" placeholder="*Correo" title="*Correo" class="InputCorto" id="CorreoInicioSesion" oninput="FBotonInicioSesion()">
+                    <input type="password" name="ContrasenaInicioSesion" placeholder="*Contrasena" title="*Contrasena" class="InputCorto" style="margin-right: 0%;" id="ContrasenaInicioSesion" oninput="FBotonInicioSesion()">
 
-			<br>
-                	<div style="display: inline;"><input class="Boton" style="float: right;" type="submit" name="IniciarSesion" value="Inicia Sesion">Inicia Sesion</button></div>
+                    <br><div style="display: inline;"><input class="Boton" style="float: right;" type="submit" name="IniciarSesion" value="Inicia Sesion" id="BotonInicioSesion"></button></div>
 		</div>
             </form>
             <form action="controller/ControllerPerfilUsuario.php" method="post">
 		<div id="RegistroUsuario">
-			<!--Opcional
-				registro de usuario
-			-->
-			<!--Este botón alterna el contenido entre Registrate o Iniciar sesión. También alteraría la altura de Registro Usuario (390px-280px)-->
 			<img src="Imagenes/Tacha.png" onclick="CerrarRegistroUsuario()">
 			<h1>Unete a la comunidad de Cafe Vinyl</h1>
-			<!--Iniciar sesión solo muestra los campos de correo y contraseña-->
-			<!--Registrarte como usuario-->
-			<input type="text" name="Alias" placeholder="*Alias" title="*Alias" class="InputLargo" >
-			<input type="text" name="Nombre(s)" placeholder="*Nombre" title="*Nombre(s)" class="InputCorto" >
-			<input type="text" name="Apellidos" placeholder="*Apellido paterno" title="*Apellido paterno" class="InputCorto" style="margin-right: 0%;" >
-			<input type="text" name="Correo" placeholder="*Correo" title="*Correo" class="InputCorto" >
-			<input type="password" name="Contrasena" placeholder="*Contrasena" title="*Contrasena" class="InputCorto" style="margin-right: 0%;">
+			<input type="text" name="Alias" placeholder="*Alias" title="*Alias" class="InputLargo" id="RegistroAlias" oninput="FBotonRegistroUsuario()">
+			<input type="text" name="Nombre(s)" placeholder="*Nombre" title="*Nombre(s)" class="InputCorto" id="RegistroNombre" oninput="FBotonRegistroUsuario()">
+			<input type="text" name="Apellidos" placeholder="*Apellido paterno" title="*Apellido paterno" class="InputCorto" style="margin-right: 0%;"  id="RegistroApellidos" oninput="FBotonRegistroUsuario()">
+			<input type="text" name="Correo" placeholder="*Correo" title="*Correo" class="InputCorto" id="RegistroCorreo" oninput="FBotonRegistroUsuario()">
+			<input type="password" name="Contrasena" placeholder="*Contrasena" title="*Contrasena" class="InputCorto" style="margin-right: 0%;" id="RegistroContrasena" oninput="FBotonRegistroUsuario()">
 			<h4>*Fecha de nacimiento</h4>
                         
-			<select style="margin-right: 20px;" title="Dia" name="dia">
+                        <select style="margin-right: 20px;" title="Dia" name="dia"> <!--id="RegistroDia" oninput="BotonRegistroUsuario()">-->
                             <?php
-                                for ($index = 1; $index < 32; $index++) {
-                                    
-                                    echo "<option value=$index>$index</option>";
-                                 
-                                }
-
-                            ?>                           
+                                for ($index = 1; $index < 32; $index++) {                                    
+                                    echo "<option value=$index>$index</option>";                                 
+                                }   ?>                           
 			</select>
      
-			<select style="margin-right: 20px; width:160px;" title="Mes" name="mes">
+                        <select style="margin-right: 20px; width:160px;" title="Mes" name="mes"> <!--id="RegistroAlias" oninput="BotonRegistroUsuario()">-->
 				<option value="01">Enero</option>
 				<option value="02">Febrero</option>
 				<option value="03">Marzo</option>
@@ -110,22 +98,19 @@
 				<option value="11">Noviembre</option>
 				<option value="12">Diciembre</option>
 			</select>
-			<select title="Año" name="año">
+                        <select title="Año" name="año"> <!--id="RegistroAlias" oninput="BotonRegistroUsuario()">-->
                             <?php
                                 for ($index = 1920; $index < 2017; $index++) {
-                                    
-                                    echo "<option value=$index>$index</option>";
-                                   
-                                }
-                            ?>
+                                    echo "<option value=$index>$index</option>";                                   
+                                }   ?>
 	
 			</select>
 			<br>
 			<div style="font-size: 22px;display: inline;" title="*Sexo">
-				<input type="radio" name="Sexo" value="H" class="Radio" style="margin-right: 15px;">Hombre
-				<input type="radio" name="Sexo" value="M" class="Radio" style="margin-right: 15px; margin-left: 15px;">Mujer
+				<input type="radio" name="Sexo" value="H" class="Radio" style="margin-right: 15px;" id="RegistroAlias" onclick="FBotonRegistroUsuario()" checked>Hombre
+				<input type="radio" name="Sexo" value="M" class="Radio" style="margin-right: 15px; margin-left: 15px;" id="RegistroAlias" onclick="FBotonRegistroUsuario()">Mujer
 			</div>
-			<div style="display: inline;"><input class="Boton" style="float: right;" name="Registro" value="Registrate" type="submit" ></button></div>
+			<div style="display: inline;"><input class="Boton" style="float: right;" name="Registro" value="Registrate" type="submit" id="BotonRegistroSesion"></button></div>
 		</div>
             </form>
             <div id="EspacioGris" onclick="CerrarRegistroUsuario() ;CerrarInicioSesionUsuario()"></div>
@@ -161,10 +146,10 @@
 				<a href="Usuario_Listas.php"><div class="OpcionMenu">Mis listas</div></a>
 				<a href="Subir_Audio.php"><div class="OpcionMenu">Subir audio</div></a>
 				<a href="Reporte_Ventas.php"><div class="OpcionMenu">Reporte de ventas</div></a>
-                                <?php //if(este usuario es administrador){?>
-				<a href="Subir_Videos_Publicitarios.php"><div class="OpcionMenu">Publicidad</div></a>
-                                <?php//}?>
-                                <a href=""><div class="OpcionMenu">Cerrar sesion</div></a>
+                                <?php if($usuario->getTipoUsuario()==="A"){?>
+                                    <a href="Subir_Videos_Publicitarios.php"><div class="OpcionMenu">Publicidad</div></a>
+                                <?php } //wtf?>
+                                <a href="controller/ControllerPerfilUsuario.php?CerrarSesion=1&Pagina=6"><div class="OpcionMenu">Cerrar sesion</div></a>
 			</div>
                         <?php   }   else    {?>
                             <div id="BotonesRegistro">
@@ -201,10 +186,14 @@
                                 ?>
 			</div>
 			<div id="Publicidad">
-				<!--<video autoplay loop muted>
-                                    <source src="Videos/City.mp4" type="video/mp4">
-					Este browser no acepta videos
-				</video>-->
+				<video autoplay loop muted>
+                                    <?php
+                                        echo "<source src=Videos/"; echo $pathPublicidad;echo " type=video/mp4> ";
+                                    ?>
+					
+				</video>
+					<!--Este browser no acepta videos-->
+				</video>
 				<img src="Imagenes/Fondo_Portada.jpg" <?php //echo $usuario->getfoto();?>>
 			</div>
 		</div>

@@ -1,11 +1,5 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 require_once '../Dao/DaoPublicidadPagina.php';
 require_once '../Dao/DaoPagina.php';
 require_once '../Dao/DaoHorarioPublicidad.php';
@@ -19,48 +13,44 @@ $daoPublicidadPagina = new DaoPublicidadPagina();
 
 if($_SERVER["REQUEST_METHOD"]== "POST")
 {
-    if(!empty($_POST["video"]))
+    if(!empty($_FILES["video"]))
     {
-        if(!empty($_FILES["video"]))
+        if($_FILES["video"]['error'] )
         {
-            if($_FILES["video"]['error'] )
-            {
-                echo "error al abrir video";
-                echo $_FILES["video"]['error'];
-                header('Location: ../Subir_Videos_Publicitarios.php');
-            }
-            $tmp_name=$_FILES["video"]["tmp_name"];
-            $name=$_POST["name"];
-            $idPagina =$_POST["Pagina"];
-            $dia=$_POST["dia"];
-            $horaInicio = $_POST["horaInicio"];
-            $horaFin=$_POST["horaFin"];
-            echo $tmp_name;
-            $path=time().".mp4";
-            move_uploaded_file($tmp_name, "../Videos/$path");
-            
-
-            
-            $publicidad->setIdUsuario(1);
-            $publicidad->setNombre($name);
-            $publicidad->setPath($path);
-            $publicidad->setIdPagina($idPagina);
-            $publicidad->setPublicidadPagina($publicidadPagina);
-            
-            $idPublicidad= $DaoPublicidad->altaVideo($publicidad);
-            
-            
-            $publicidadPagina->setDia($dia);
-            $publicidadPagina->setHoraFin($horaFin);
-            $publicidadPagina->setHoraInicio($horaInicio);
-            $publicidadPagina->setIdPublicidad($idPublicidad);
-            $publicidadPagina->setIdPagina($idPagina);
-            
-            $daoPublicidadPagina->AltaPublicidadPagina($publicidadPagina);
-            
-            
+            echo "error al abrir video";
+            echo $_FILES["video"]['error'];
+            header('Location: ../Subir_Videos_Publicitarios.php');
         }
+        $tmp_name=$_FILES["video"]["tmp_name"];
+        $name=$_POST["name"];
+        $idPagina =$_POST["Pagina"];
+        $dia=$_POST["dia"];
+        $horaInicio = $_POST["horaInicio"];
+        $horaFin=$_POST["horaFin"];
+        echo $tmp_name;
+        $path=time().".mp4";
+        move_uploaded_file($tmp_name, "../Videos/$path");
+
+
+
+        $publicidad->setIdUsuario(1);
+        $publicidad->setNombre($name);
+        $publicidad->setPath($path);
+        $publicidad->setIdPagina($idPagina);
+        $publicidad->setPublicidadPagina($publicidadPagina);
+
+        $idPublicidad= $DaoPublicidad->altaVideo($publicidad);
+
+
+        $publicidadPagina->setDia($dia);
+        $publicidadPagina->setHoraFin($horaFin);
+        $publicidadPagina->setHoraInicio($horaInicio);
+        $publicidadPagina->setIdPublicidad($idPublicidad);
+        $publicidadPagina->setIdPagina($idPagina);
+
+        $daoPublicidadPagina->AltaPublicidadPagina($publicidadPagina);            
     }
+    
     if(!empty($_POST["eliminar"]))
     {
         $idPublicidad=$_POST["eliminar"];
@@ -91,5 +81,3 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
     }
 }
 header('Location: ../Subir_Videos_Publicitarios.php');
-
-

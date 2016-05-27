@@ -29,7 +29,6 @@ class DaoPublicidad {
             if($stmt->bind_param('ssi',$publicidad->getPath(),$publicidad->getNombre(),$publicidad->getIdUsuario()))
             {
                 printf("entro al bind");
-                
                 if($stmt->execute())
                 { 
                     $result=$connect->query("SELECT LAST_INSERT_ID()");

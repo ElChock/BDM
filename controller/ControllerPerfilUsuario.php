@@ -169,4 +169,24 @@ if ($_SERVER["REQUEST_METHOD"]== "POST")
         $daoUsuario->ActualizarFotoPerfil($idUsuario, $imagen);
     }
 header('Location: ../Perfil_usuario.php');
+} else if($_SERVER["REQUEST_METHOD"]== "GET"){
+    $CerrarSesion=$_GET["CerrarSesion"];
+    $Pagina=$_GET["Pagina"];
+
+    if(!empty($CerrarSesion)){
+        if($CerrarSesion==="1" AND !empty($Pagina)){
+            session_start();
+            session_unset($_SESSION);
+            
+            switch ($Pagina){
+                case "6":
+                    header('Location: ../Pagina_Inicio.php');
+                    break;
+                default:
+                    header('Location: ../Pagina_Inicio.php');
+                    break;
+            }
+        }
+    }
+
 }
