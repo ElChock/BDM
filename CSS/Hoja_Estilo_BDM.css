@@ -333,10 +333,15 @@ textarea{
     margin-right: 20px;
 }
 .Cargar{
+    background-color: transparent;
+    background-image: url('../Imagenes/Carga.png');
+    background-repeat: round;
+    cursor: pointer;
     float: right;
     margin-right: 10px;
     margin-top: 10px;
     visibility: hidden;
+    height: 37px;
     width: 37px;
 }
 

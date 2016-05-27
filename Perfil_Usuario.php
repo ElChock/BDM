@@ -16,10 +16,7 @@ if(!empty($_SESSION["idUsuario"]))
  
 $daoUsuario=new DaoUsuario();
 $usuario= $daoUsuario->ObtenerUsuarioId($idUsuario);
-
-echo $usuario->getNombre();
 }
-
 $daoPais = new DaoPais();
 $listPais = $daoPais->obtenerPais();
 $daoPublicidadPagina= new DaoPublicidadPagina();
@@ -147,10 +144,22 @@ if(empty($pathPublicidad))
 		<div id="EspacioContenido">
 			<div id="Contenido">
 				<div id="EspacioPerfil">
-                                    <form  action="controller/ControllerPerfilUsuario.php" method="post" enctype="multipart/form-data"> 
-                                        <div style="background-image: url(<?php echo 'data:image/jpeg;base64,'.base64_encode($usuario->getFotoPortada()).'' ?>);" id="PerfilPortada" onmouseover="MostrarCargarImagen(0)" onmouseout="OcultarCargarImagen(0)">  <input type="file" name="Portada"  src="Imagenes/Carga.png" class="Cargar"> <input type="submit" name="fotoPortada" value="Subir">  </div>
+                                    <form  action="controller/ControllerPerfilUsuario.php" method="post" enctype="multipart/form-data">
+                                        <div style="background-image: url(  <?php echo 'data:image/jpeg;base64,'.base64_encode($usuario->getFotoPortada()).''; ?>); background-color: #dfe1be;" id="PerfilPortada" onmouseover="MostrarCargarImagen(0)" onmouseout="OcultarCargarImagen(0)">
+                                            <label for="FotoPortada" class="Cargar"></label>
+                                            <input id="FotoPortada" type="file" name="Portada"  style="display:none;" accept="image/*">
+                                            <input  type="submit" name="fotoPortada" value="Subir">
+                                        </div>
                                     
-                                        <div style="background-image: url(<?php echo 'data:image/jpeg;base64,'.base64_encode($usuario->getFotoPerfil()).'' ?>);" id="PerfilAvatar"  onmouseover="MostrarCargarImagen(1)" onmouseout="OcultarCargarImagen(1)"><input type="file" name="Perfil"  src="Imagenes/Carga.png" class="Cargar"> <input type="submit" name="fotoPerfil" value="Subir"> </div>
+                                        <div style="background-image: url(<?php
+                                        if(empty($usuario->getFotoPerfil())){
+                                            echo 'Imagenes/unknown.jpg';
+                                        } else{
+                                            echo 'data:image/jpeg;base64,'.base64_encode($usuario->getFotoPerfil()).''; }?>);"    id="PerfilAvatar"  onmouseover="MostrarCargarImagen(1)" onmouseout="OcultarCargarImagen(1)">
+                                            <label for="FotoAvatar" class="Cargar"></label>
+                                            <input id="FotoAvatar" type="file" name="Perfil" style="display:none;" accept="image/*">
+                                            <input type="submit" name="fotoPerfil" value="Subir">
+                                        </div>
                                     </form>
                                         <h2 id="NombrePerfil"><?php  if(!empty($usuario->getAlias())){echo $usuario->getAlias();}?> </h2>
 				</div>
@@ -266,14 +275,14 @@ if(empty($pathPublicidad))
 					</table>
 					</div>
 				<h1>Audios de este artista</h1>
-				<div class="AudioVista" style="background-image: url('2.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('3.png');"></div>
-				<div class="AudioVista" style="background-image: url('4.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('5.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('6.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('7.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('8.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('9.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/2.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/3.png');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/4.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/5.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/6.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/7.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/8.jpg');"></div>
+				<div class="AudioVista" style="background-image: url('Imagenes/9.jpg');"></div>
 			</div>
 			<div id="Publicidad">
 				<!--Descomentar luego--> <!--<video autoplay loop muted>
