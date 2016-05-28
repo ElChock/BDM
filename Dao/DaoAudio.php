@@ -1,7 +1,7 @@
 <?php
 
 require_once 'MySqlCon.php';
-require_once './Model/Audio.php';
+require_once '/xampp/htdocs/CafeVinil/Model/Audio.php';
 //require_once '../Model/Usuario.php';
 class DaoAudio {
     
@@ -32,9 +32,11 @@ class DaoAudio {
     {
         $conn = new MySqlCon();
         $connect=$conn->connect();
-        $stmt=$connect->prepare("call spb_usuario(?,?)");
+        $stmt=$connect->prepare("call spb_audio(?,?)");
         $stmt->bind_param("ii", $audio->getIdAudio(),$audio->getIdUsuario());
-        $stmt->execute();
+        if($stmt->execute()){
+            echo "Se ejecuto correctamente la baja del audio";
+        }   else{ echo "Error al ejecutar spb_audio: ".$stmt->error;    }
     }
     
     public function BuscarAudio($FechaInicio, $FechaFin, $TituloAudio, $AliasUsuario){
@@ -113,8 +115,10 @@ class DaoAudio {
     {
         $conn = new MySqlCon();
         $connect=$conn->connect();
-        $stmt=$connect->prepare("call spc_usuario(?,?,?,?)");
-        $stmt->bind_param("iisi", $audio->getIdAudio(),$audio->getIdUsuario(),$audio->getTitulo(),$audio->getPrecio());
-        $stmt->execute();
+        $stmt=$connect->prepare("call spc_audio(?,?,?,?,?,?)");
+        $stmt->bind_param("iisiii", $audio->getIdAudio(),$audio->getIdUsuario(),$audio->getTitulo(),$audio->getPrecio(),$audio->getGenero(),$audio->getCategoria());
+        if($stmt->execute()){
+            echo "Se ejecuto correctamente los cambios del audio";
+        } else{ echo "Error al ejecutar spc_audio: ".$stmt->error;    }
     }
 }

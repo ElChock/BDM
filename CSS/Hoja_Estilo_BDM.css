@@ -254,6 +254,7 @@ textarea{
     background-image: url('../Imagenes/Fondo_Registro_Usuario.jpg');
     background-repeat: round;
     border-radius: 15px;
+    display: block;
     height: 390px;
     padding: 3%;
     padding-top: 0px;
@@ -270,6 +271,7 @@ textarea{
     background-image: url('../Imagenes/Fondo_Registro_Usuario.jpg');
     background-repeat: round;
     border-radius: 15px;
+    display: block;
     height: 200px;
     padding: 3%;
     padding-top: 0px;

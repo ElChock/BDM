@@ -4,7 +4,8 @@ function FBotonInicioSesion(){
     var Boton=document.getElementById("BotonInicioSesion");
     var CorreoInicioSesion=document.getElementById("CorreoInicioSesion");
     var ContrasenaInicioSesion=document.getElementById("ContrasenaInicioSesion");
-    if(CorreoInicioSesion.value=="" || ContrasenaInicioSesion.value==""){
+    var KIN= document.getElementById("InicioSesionUsuario");//.style.visibility= "visible";
+    if(CorreoInicioSesion.value=="" || ContrasenaInicioSesion.value=="" || KIN.style.visibility!="visible"){
             Boton.style.visibility="hidden";
     } else{
             Boton.style.visibility="visible";
@@ -29,30 +30,38 @@ function FBotonRegistroUsuario(){
 /*Otras funciones*/
 function AbrirRegistroUsuario(){
         FBotonInicioSesion();
+        //document.getElementById("BotonRegistroSesion").style.visibility="visible";
 	document.getElementById("EspacioGris").style.zIndex= 1000;
 	document.getElementById("EspacioGris").style.visibility= "visible";
 	document.getElementById("RegistroUsuario").style.zIndex= 1001;
-	document.getElementById("RegistroUsuario").style.visibility= "visible";
+	document.getElementById("RegistroUsuario").style.display="block";
+        document.getElementById("RegistroUsuario").style.visibility= "visible";
 }
 function AbrirInicioSesionUsuario(){
+        //document.getElementById("BotonInicioSesion").style.visibility="visible";
 	document.getElementById("EspacioGris").style.zIndex= 1000;
 	document.getElementById("EspacioGris").style.visibility= "visible";
 	document.getElementById("InicioSesionUsuario").style.zIndex= 1001;
 	document.getElementById("InicioSesionUsuario").style.visibility= "visible";
+        //document.getElementById("BotonInicioSesion").style.display="block";
 }
 
 function CerrarInicioSesionUsuario(){
+        //document.getElementById("BotonInicioSesion").style.visibility="hidden";
 	document.getElementById("EspacioGris").style.zIndex= -1000;
 	document.getElementById("EspacioGris").style.visibility= "hidden";
 	document.getElementById("InicioSesionUsuario").style.zIndex= -1001;
 	document.getElementById("InicioSesionUsuario").style.visibility= "hidden";
+        //document.getElementById("BotonInicioSesion").style.display="hidden";
 }
 
 function CerrarRegistroUsuario(){
+        //document.getElementById("BotonRegistroSesion").style.visibility="hidden";
 	document.getElementById("EspacioGris").style.zIndex= -1000;
 	document.getElementById("EspacioGris").style.visibility= "hidden";
 	document.getElementById("RegistroUsuario").style.zIndex= -1001;
-	document.getElementById("RegistroUsuario").style.visibility= "hidden";
+	document.getElementById("RegistroUsuario").style.display="none";
+        document.getElementById("RegistroUsuario").style.visibility= "hidden";
 }
 
 function Desplegar() {
