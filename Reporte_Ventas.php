@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php
+    include_once './Model/Reporte.php';
+    include_once './Dao/DaoReporte.php';
+    $daoReporte = new DaoReporte();
+    session_start();
+    $listaReporte;
+    if($_SERVER['REQUEST_METHOD']=='POST')
+    {
+        $idUsuario = $_SESSION["idUsuario"];
+        $dia=$_POST["dia"];
+        $mes=$_POST["mes"];
+        $año=$_POST["año"];
+        $fechaInicio=substr($año, 2,2)."-".$mes."-".$dia;
+        $diaFin=$_POST["diaFin"];
+        $mesFin=$_POST["mesFin"];
+        $añoFin=$_POST["añoFin"];
+        $fechaFin=substr($añoFin, 2,2)."-".$mesFin."-".$diaFin;
+        $listaReporte = $daoReporte->reporteFecha($fechaInicio, $fechaFin, $idUsuario);
+    } 
+    
+?>
 <html>
 	<head>
 		<title>Cafe Vinyl</title>
@@ -6,7 +27,7 @@
 		<meta charset="UTF-8">
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-                <script src="Paginas Proyecto BDM/Table_Plugin//Table_Plugin/stupidtable.js?dev"></script>
+                <script src="Paginas Proyecto BDM/Table_Plugin/stupidtable.js?dev"></script>
                 <script src="JS/Codigo_Javascript_BDM.js"></script>
 		<script>
 		    $(function(){
@@ -51,118 +72,130 @@
 		<div id="EspacioContenido">
 			<div id="Contenido" style="width: 100%">
 				<h3 style="font-size:50px; margin-top:20px;">Reporte de ventas</h3>
+			
+                                <form actio="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                                      
+                                      <!-- fecha Inicio -->
+                                    <select style="margin-right: 20px;" title="Dia" name="dia">
+                                        <?php
+                                            for ($index = 1; $index < 32; $index++) {
 
+                                                echo "<option value=$index>$index</option>";
+
+                                            }
+
+                                         ?>                           
+                                    </select>
+
+                                    <select style="margin-right: 20px; width:160px;" title="Mes" name="mes">
+                                            <option value="01">Enero</option>
+                                            <option value="02">Febrero</option>
+                                            <option value="03">Marzo</option>
+                                            <option value="04">Abril</option>
+                                            <option value="05">Mayo</option>
+                                            <option value="06">Junio</option>
+                                            <option value="07">Julio</option>
+                                            <option value="08">Agosto</option>
+                                            <option value="09">Septiembre</option>
+                                            <option value="10">Octubre</option>
+                                            <option value="11">Noviembre</option>
+                                            <option value="12">Diciembre</option>
+                                    </select>
+                                    <select title="Año" name="año">
+                                        <?php
+                                            for ($index = 1920; $index < 2017; $index++) {
+
+                                                echo "<option value=$index>$index</option>";
+
+                                            }
+                                        ?>
+                                    </select>
+                                      
+                                      
+                                      <!-- fecha fin -->
+                                      
+                                    <select style="margin-right: 20px;" title="Dia" name="diaFin">
+                                        <?php
+                                            for ($index = 1; $index < 32; $index++) {
+
+                                                echo "<option value=$index>$index</option>";
+
+                                            }
+
+                                         ?>                           
+                                    </select>
+
+                                    <select style="margin-right: 20px; width:160px;" title="Mes" name="mesFin">
+                                            <option value="01">Enero</option>
+                                            <option value="02">Febrero</option>
+                                            <option value="03">Marzo</option>
+                                            <option value="04">Abril</option>
+                                            <option value="05">Mayo</option>
+                                            <option value="06">Junio</option>
+                                            <option value="07">Julio</option>
+                                            <option value="08">Agosto</option>
+                                            <option value="09">Septiembre</option>
+                                            <option value="10">Octubre</option>
+                                            <option value="11">Noviembre</option>
+                                            <option value="12">Diciembre</option>
+                                    </select>
+                                    <select title="Año" name="añoFin">
+                                        <?php
+                                            for ($index = 1920; $index < 2017; $index++) {
+
+                                                echo "<option value=$index>$index</option>";
+
+                                            }
+                                        ?>
+                                    </select>
+                                      
+                                      
+                                      <button  > buscar</button>
+                                    
+                                </form>
+                                
 				<table class="TablaEspecial">
 				    <thead>
 				      <tr>
+                                        <th data-sort="int">Fecha de compra</th>
 				        <th data-sort="string">Audio</th>
-				        <th data-sort="int">Fecha de compra</th>
-				        <th data-sort="int">Precio</th>
-				        <th data-sort="int">Impuesto (%)</th>
+                                        <th data-sort="int">categoria</th>
 				        <th data-sort="string">Correo</th>
-				        <th data-sort="string">Domicilio</th>
-				        <th data-sort="string">RFC</th>
-				        <th data-sort="string">CURP</th>
+				        <th data-sort="string">Domicilio</th>				        
 				        <th data-sort="string">Tarjeta</th>
 				        <th data-sort="string">Digitos de la tarjeta</th>
+                                        <th data-sort="int">Impuesto (%)</th>
+                                        <th data-sort="int">Precio</th>
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr>
-				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
-				        <td>16/05/2016</a></td>
-				        <td>$49.00</td>
-				        <td>10%</td>
-				        <td>BNS@gmail.com</td>
-				        <td>Green Coast #722, San Nicolás de los Garza. Nuevo León. México</td>
-				        <td>IFUEWUIH82</td>
-				        <td>IFUEWUIH82</td>
-				        <td>Master Card</td>
-				        <td>1234</td>
-				      </tr>
-				      <tr>
-				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
-				        <td>16/05/2016</a></td>
-				        <td>$49.00</td>
-				        <td>10%</td>
-				        <td>BNS@gmail.com</td>
-				        <td>Green Coast #722, San Nicolás de los Garza. Nuevo León. México</td>
-				        <td>IFUEWUIH82</td>
-				        <td>IFUEWUIH82</td>
-				        <td>Master Card</td>
-				        <td>1234</td>
-				      </tr>
-				      <tr>
-				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
-				        <td>16/05/2016</a></td>
-				        <td>$49.00</td>
-				        <td>10%</td>
-				        <td>BNS@gmail.com</td>
-				        <td>Green Coast #722, San Nicolás de los Garza. Nuevo León. México</td>
-				        <td>IFUEWUIH82</td>
-				        <td>IFUEWUIH82</td>
-				        <td>Master Card</td>
-				        <td>1234</td>
-				      </tr>
+                                        <?php
+                                        $TotalVenta;
+                                        echo "<tr>";
+                                        if(isset($listaReporte))
+                                        {
+                                            for($indes=0;$index<count($listaReporte);$index++)
+                                            {
+                                                echo "<td>"; echo $listaReporte[$index]->getFecha(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getTitulo(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getNombreCategoria(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getCorreo(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getPais(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getTipoTarjeta(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getFecha(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getUltimosNumeroTarjeta(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getPrecio(); echo "</td>";
+                                                $TotalVenta+=$listaReporte[$index]->getPrecio();
+                                            }
+                                        }
+                                        echo "</tr>";
+                                        ?>
 				    </tbody>
 				  </table>
 
-				  <h3 style="font-size:50px; margin-top:20px;">Discos comprados</h3>
+				
 
-				<table class="TablaEspecial">
-				    <thead>
-				      <tr>
-				        <th data-sort="string">Audio</th>
-				        <th data-sort="int">Fecha de compra</th>
-				        <th data-sort="int">Precio</th>
-				        <th data-sort="int">Impuesto (%)</th>
-				        <th data-sort="string">Correo</th>
-				        <th data-sort="string">Domicilio</th>
-				        <th data-sort="string">RFC</th>
-				        <th data-sort="string">CURP</th>
-				        <th data-sort="string">Tarjeta</th>
-				        <th data-sort="string">Digitos de la tarjeta</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				      <tr>
-				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
-				        <td>16/05/2016</a></td>
-				        <td>$49.00</td>
-				        <td>10%</td>
-				        <td>BNS@gmail.com</td>
-				        <td>Green Coast #722, San Nicolás de los Garza. Nuevo León. México</td>
-				        <td>IFUEWUIH82</td>
-				        <td>IFUEWUIH82</td>
-				        <td>Master Card</td>
-				        <td>1234</td>
-				      </tr>
-				      <tr>
-				        <td><a href="Pagina_Audio.php">You're not alone</a></td>
-				        <td>16/05/2016</a></td>
-				        <td>$49.00</td>
-				        <td>10%</td>
-				        <td>BNS@gmail.com</td>
-				        <td>Green Coast #722, San Nicolás de los Garza. Nuevo León. México</td>
-				        <td>IFUEWUIH82</td>
-				        <td>IFUEWUIH82</td>
-				        <td>Master Card</td>
-				        <td>1234</td>
-				      </tr>
-				      <tr>
-				        <td><a href="Pagina_Audio.html">You're not alone</a></td>
-				        <td>16/05/2016</a></td>
-				        <td>$49.00</td>
-				        <td>10%</td>
-				        <td>BNS@gmail.com</td>
-				        <td>Green Coast #722, San Nicolás de los Garza. Nuevo León. México</td>
-				        <td>IFUEWUIH82</td>
-				        <td>IFUEWUIH82</td>
-				        <td>Master Card</td>
-				        <td>1234</td>
-				      </tr>
-				    </tbody>
-				  </table>
+				
 			</div>
 		</div>
 	</body>

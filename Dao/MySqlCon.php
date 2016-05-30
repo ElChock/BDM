@@ -20,17 +20,12 @@ class MySqlCon {
      
         public function connect ()
         {
-            //$yolo=  new mysqli("localhost", "root", "little20","bdm"); //Ayrton
-            $yolo=  new mysqli("localhost", "root", "","bdm"); //Benjamin
+            $yolo=  new mysqli("localhost", "root", "little20!","bdm"); //Ayrton
+            //$yolo=  new mysqli("localhost", "root", "","bdm"); //Benjamin
             
-            if(mysqli_connect_errno())
-            {
-                echo "no se pudo conecctar a MYsql ";
-            }
-            else
-            {
+
              return$yolo;
-            }
+            
            // return mysqli('localhost','root','little20!');
         }
 
