@@ -9,6 +9,8 @@
     include_once './Dao/DaoPublicidad.php';
     include_once './Model/Publicidad.php';
     include_once './Dao/DaoPublicidadPagina.php';
+    include_once './Dao/DaoLista.php';
+    include_once './Model/lista.php';
     //include_once './Dao/DaoCompraPublicidad.php';
     //include_once './Dao/DaoListas.php';
     
@@ -53,6 +55,10 @@
     {
         $pathPublicidad="City.mp4";
     }
+    
+    $daoLista= new DaoLista();
+    $listalista=$daoLista->buscarLista($idUsuario);
+    
 ?>
 
 <!DOCTYPE html>
@@ -199,7 +205,7 @@
                                                     <?php   }   ?>
                                             </h1>
                                             <h1 style="font-size: 50px; margin-top:0px;"><?php echo $Audio->getTitulo();?></h1>
-                                            <h2>por <a href="Perfil_Usuario.php" class="UsuarioLink"><?php echo $Audio->getnombreUsuario();?></a></h2>
+                                            <h2>por <a href="Perfil_Usuario.php?idUsuario=<?php echo $Audio->getIdUsuario();?> "class="UsuarioLink"><?php echo $Audio->getnombreUsuario();?></a></h2>
                                             <p>Género: <?php echo $Audio->nombregenero;?></p>
                                             <p>Categoría: <?php echo $Audio->nombrecategoria;?></p>
                                             <?php //Si la cancion es gratis, es mia o ya la compre?>
@@ -221,6 +227,25 @@
                                                     </select> <input type="submit" value="Agregar a lista de reproduccion" class="Boton"></p>
                                             </form>-->
                                             <?php   }   ?>
+                                            
+                                            <form action="controller/ControllerGestionAudio.php" method="post">
+                                                <select style="margin-right: 20px;" title="Lista" name="AgregarLista">
+
+                                                <?php                                                  
+                                                        for ($index = 0; $index < count($listalista); $index++) 
+                                                        {                                    
+                                                            echo '<option value=';
+                                                            echo $listalista[$index]->getIdlista();
+                                                            echo ' > ';
+                                                            echo $listalista[$index]->getTitulo();  
+                                                            echo '</option>';
+                                                            session_start();
+                                                            $_SESSION["idAudioLista"]=$Audio->getIdAudio();
+                                                        }                              
+                                                ?>
+                                                </select>
+                                                <input type="submit" name="agregarCancionLista" value="agregar a lista">
+                                            </form>
 
                                     </div>
                             </div>

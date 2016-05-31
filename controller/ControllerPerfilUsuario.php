@@ -188,5 +188,11 @@ header('Location: ../Perfil_usuario.php');
             }
         }
     }
+    
+    if(!empty($_GET["idUsuario"]))
+    {
+        $idUsuario=$_GET["idUsuario"];
+        
+    }
 
 }

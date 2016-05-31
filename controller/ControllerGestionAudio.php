@@ -3,6 +3,9 @@
 require_once "../Dao/DaoComentario.php";
 require_once '../Dao/DaoAudio.php';
 require_once '../Model/Audio.php';
+require_once '../Dao/DaoAudioLista.php';
+require_once '../Model/AudioLista.php';
+
 
 $DaoAudio = new DaoAudio();
 $audio = new Audio(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -50,7 +53,24 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
     } else{
         echo 'No se pudo guardar cambios';
     }
-} else{
+    
+    if(!empty( $_POST["agregarCancionLista"]))
+    {
+        session_start();
+        $daoAudioLista=new DaoAudioLista();
+        $audioLista = new AudioLista();
+        $audioLista->setIdAudio($_SESSION["idAudioLista"]);
+        $audioLista->setIdLista($_POST["AgregarLista"]);
+        echo "idLista".$audioLista->getIdLista();
+        $daoAudioLista->agregarAudioLista($audioLista);
+        header("Location: ../Pagina_Audio.php");
+    }
+    else
+    {
+        echo "no entro audioLista";
+    }
+} 
+else{
     $EliminarAudio=htmlspecialchars($_GET["EliminarAudio"]);
     $IdAudioEliminar=htmlspecialchars($_GET["IdAudioEliminar"]);
     if(!empty($EliminarAudio) && !empty($IdAudioEliminar)){

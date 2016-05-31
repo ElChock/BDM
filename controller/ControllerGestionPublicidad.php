@@ -72,12 +72,16 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
         $publicidadPagina->setHoraInicio($horaInicio);
         $publicidadPagina->setIdPagina($idPagina);
         $publicidadPagina->setIdPublicidad($idPublicidad);
-                 echo $publicidadPagina->getIdPublicidad();
-                 echo $publicidadPagina->getIdPagina();
-                 echo $publicidadPagina->getHoraInicio();
-                 echo $publicidadPagina->getHoraFin();
-                 echo $publicidadPagina->getDia();
+                 echo "id ".$publicidadPagina->getIdPublicidad();
+                 echo "idPagina ".$publicidadPagina->getIdPagina();
+                 echo "horaInicio ".$publicidadPagina->getHoraInicio();
+                 echo "horaFin ".$publicidadPagina->getHoraFin();
+                 echo "dia ".$publicidadPagina->getDia();
         $daoPublicidadPagina->actualizarPublicidadPagina($publicidadPagina);
+    }
+    else 
+    {
+        echo "no entro a guardar";
     }
 }
 header('Location: ../Subir_Videos_Publicitarios.php');

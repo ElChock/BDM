@@ -12,13 +12,7 @@
  * @author Ayrton
  */
 class AudioLista {
-    
-    function __construct($idAudio, $idLista) {
-        $this->idAudio = $idAudio;
-        $this->idLista = $idLista;
-    }
-
-    
+        
     function getIdAudio() {
         return $this->idAudio;
     }

@@ -11,8 +11,8 @@
  *
  * @author Ayrton
  */
-class lista {  
-    function getIdlista() {
+class lista {    
+function getIdlista() {
         return $this->idlista;
     }
 
@@ -44,13 +44,7 @@ class lista {
         $this->idUsuario = $idUsuario;
     }
 
-        
-    function __construct($idlista, $imagen, $titulo, $idUsuario) {
-        $this->idlista = $idlista;
-        $this->imagen = $imagen;
-        $this->titulo = $titulo;
-        $this->idUsuario = $idUsuario;
-    }
+           
 
     //put your code here
     
