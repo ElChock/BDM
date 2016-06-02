@@ -27,8 +27,10 @@ class DaoReporte {
         
         if($stmt=$connect->prepare("call sp_reporteFecha(?,?,?)"))
         {
+         
             if($stmt->bind_param('ssi',$fechaInicio,$fechaFin,$idUsuario))
             {       
+         
                 if($stmt->execute())
                 {
                     $stmt->bind_result($nombreCategoria,$titulo,$precio,$impuesto,$fecha,$correo,$pais,$tipoTarjeta,$ultimosnumeroTarjeta);
@@ -44,6 +46,8 @@ class DaoReporte {
                         $reporte->setPrecio($precio);
                         $reporte->setTipoTarjeta($tipoTarjeta);
                         $reporte->setTitulo($titulo);
+                        $reporte->setUltimosNumeroTarjeta($ultimosnumeroTarjeta);
+                        
                         $listaReporte[$contador]=$reporte;
                         $contador++;
                     }

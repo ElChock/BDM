@@ -273,4 +273,10 @@ class DaoUsuario {
            echo $stmt->error;
        }
     }
+    
+    function optenerImpuestoIdUsuario($idUsuario)
+    {
+        
+    }
+    
 }

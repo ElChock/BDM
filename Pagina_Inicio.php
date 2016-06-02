@@ -110,6 +110,7 @@
                     <div style="display: inline;"><input class="Boton" style="float: right;" name="Registro" value="Registrate" type="submit" id="BotonRegistroSesion"></button></div>
 		</div>
             </form>
+            
             <div id="EspacioGris" onclick="CerrarRegistroUsuario() ;CerrarInicioSesionUsuario()"></div>
             <?php }?>
 		<div id="Encabezado">

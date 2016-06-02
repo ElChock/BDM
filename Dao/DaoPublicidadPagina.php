@@ -12,6 +12,7 @@
  * @author Ayrton
  */
 include_once '/xampp/htdocs/CafeVinil/Model/PublicidadPagina.php';
+include_once './Model/Publicidad.php';
 class DaoPublicidadPagina {
     
     function AltaPublicidadPagina(publicidadPagina $publicidadPagina)

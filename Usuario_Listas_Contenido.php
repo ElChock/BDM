@@ -6,6 +6,7 @@ include_once './Dao/DaoAudioLista.php';
 include_once './Model/Audio.php';
     include_once './Dao/DaoUsuario.php';
     include_once './Model/Usuario.php';
+    include_once './Dao/DaoPublicidadPagina.php';
     $idLista=$_GET["idLista"];
     session_start();
     $idUsuario=$_SESSION["idUsuario"];

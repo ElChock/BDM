@@ -12,8 +12,31 @@
  * @author Ayrton
  */
 class CompraAudio {
-    
-    function getIdUsuario() {
+    function getNumeroTarjeta() {
+        return $this->numeroTarjeta;
+    }
+
+    function getCVC() {
+        return $this->CVC;
+    }
+
+    function getTipoTarjeta() {
+        return $this->tipoTarjeta;
+    }
+
+    function setNumeroTarjeta($numeroTarjeta) {
+        $this->numeroTarjeta = $numeroTarjeta;
+    }
+
+    function setCVC($CVC) {
+        $this->CVC = $CVC;
+    }
+
+    function setTipoTarjeta($tipoTarjeta) {
+        $this->tipoTarjeta = $tipoTarjeta;
+    }
+
+        function getIdUsuario() {
         return $this->idUsuario;
     }
 
@@ -62,14 +85,6 @@ class CompraAudio {
     }
 
         
-    function __construct($idUsuario, $idAudio, $precio, $impuesto, $fecha, $idTarjeta) {
-        $this->idUsuario = $idUsuario;
-        $this->idAudio = $idAudio;
-        $this->precio = $precio;
-        $this->impuesto = $impuesto;
-        $this->fecha = $fecha;
-        $this->idTarjeta = $idTarjeta;
-    }
 
     //put your code here
     private $idUsuario;
@@ -77,6 +92,9 @@ class CompraAudio {
     private $precio;
     private $impuesto;
     private $fecha;
-    private $idTarjeta;
+    private $numeroTarjeta;
+    private $CVC;
+    private $tipoTarjeta;
+    
          
 }

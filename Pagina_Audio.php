@@ -198,12 +198,14 @@
                                             <div class="PortadaDiscoVinilo" style="background-image: url('Imagenes/Fondo_Musica.png');"></div>
                                     </div>
                                     <div class="AudioInfoCompleta">
+                                        <form  method='post' action='controller/ControllerCarritoCompra.php'>
                                         <h1 style="font-size: 50px;">$<?php echo $Audio->getPrecio();?>
                                                     <!--El color del fondo y el titulo de este carrito de compras cambia depende de si ya ha sido comprado o no-->
                                                     <?php   if($Audio->getPrecio()!==0){  ?>
-                                                        <img class="CarritoCompras" src="Imagenes/Carro_Compras.png" title="Mandar al carrito de compras">
+                                                    <input type="image" name='idAdudioCarrito' value="<?php echo $Audio->getIdAudio() ?>" class="CarritoCompras" src="Imagenes/Carro_Compras.png" title="Mandar al carrito de compras">
                                                     <?php   }   ?>
                                             </h1>
+                                        </form>
                                             <h1 style="font-size: 50px; margin-top:0px;"><?php echo $Audio->getTitulo();?></h1>
                                             <h2>por <a href="Perfil_Usuario.php?idUsuario=<?php echo $Audio->getIdUsuario();?> "class="UsuarioLink"><?php echo $Audio->getnombreUsuario();?></a></h2>
                                             <p>Género: <?php echo $Audio->nombregenero;?></p>
@@ -263,7 +265,7 @@
                             <?php   if(!empty($usuario->getIdUsuario())){   ?>
                             <form  action="controller/ControllerGestionComentario.php" method="get">
                                 <input type="number" value="0" name="IdComentario" style="display: none;">
-                                <input type="number" value="4" name="IdUsuario" style="display: none;">
+                                <input type="number" value="<?php echo $idUsuario ?>" name="IdUsuario" style="display: none;">
                                 <input type="number" value="<?php echo $Audio->getIdAudio();?>" name="IdAudio" style="display: none;">
                                 <textarea title="Puedes comentar aqui..." placeholder="Puedes comentar aqui..." name="ComentarioTexto" style="margin-bottom:20px; width: 97.6%;"></textarea>
                                 <input type="submit" value="Comentar" class="Boton">

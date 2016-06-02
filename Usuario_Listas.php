@@ -4,6 +4,9 @@
     include_once './Model/lista.php';
     include_once './Dao/DaoUsuario.php';
     include_once './Model/Usuario.php';
+    include_once './Dao/DaoPublicidad.php';
+    include_once './Model/Publicidad.php';
+    include_once './Dao/DaoPublicidadPagina.php';
     session_start();
     $idUsuario=$_SESSION["idUsuario"];
     $daoLista= new DaoLista();
@@ -20,7 +23,7 @@
         }
     }
     
-    $daoPublicidadPagina= new DaoPublicidadPagina();
+$daoPublicidadPagina= new DaoPublicidadPagina();
 $publicidad=$daoPublicidadPagina->BuscarPublicidadParaMostrar(14);
 $pathPublicidad=$publicidad->getPath();
 

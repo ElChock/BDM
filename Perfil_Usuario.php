@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 include_once './Dao/DaoPublicidad.php';
 include_once './Model/Publicidad.php';
 include_once './Dao/DaoPublicidadPagina.php';
@@ -7,7 +7,8 @@ include_once './Dao/DaoUsuario.php';
 include_once './Model/Usuario.php';
 include_once './Dao/DaoPais.php';
 include_once './Model/pais.php';
-
+    include_once './Dao/DaoAudio.php';
+    include_once './Model/Audio.php';
 session_start();
 
 $usuario=new Usuario(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
@@ -37,7 +38,8 @@ if(empty($pathPublicidad))
 {
     $pathPublicidad="City.mp4";
 }
-
+$DaoAudio = new DaoAudio();
+$listaAudios=$DaoAudio->BuscarAudio(NULL,NULL,NULL,$usuario->getAlias());
 
 ?>
 
@@ -308,14 +310,18 @@ if(empty($pathPublicidad))
 					</table>
 					</div>
 				<h1>Audios de este artista</h1>
-				<div class="AudioVista" style="background-image: url('Imagenes/2.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/3.png');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/4.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/5.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/6.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/7.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/8.jpg');"></div>
-				<div class="AudioVista" style="background-image: url('Imagenes/9.jpg');"></div>
+                                <?php
+                                    if(count($listaAudios)<=0){
+                                        echo "<h1>No se encontro ningun audio</h1>";
+                                    } else{
+                                        echo "<h1>Resultados</h1>";
+                                        for($index =0;$index<count($listaAudios);$index++)
+                                        {
+                                            echo "<a class=\"AudioVista\" style=\"background-image: url('Imagenes/Fondo_Musica.png');\" href=\"Pagina_Audio.php?IdAudio=";echo $listaAudios[$index]->getIdAudio();echo"\">";
+                                            echo "<div class=\"AudioInfo\"><h3>";echo $listaAudios[$index]->getTitulo();echo "</h3><h4>";echo $listaAudios[$index]->getnombreUsuario() ;echo "</h4></div></a>";
+                                        }
+                                    }
+                                ?>
 			</div>
 			<div id="Publicidad">
                             <video autoplay muted>

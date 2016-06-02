@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <?php
+error_reporting(0);
     include_once './Model/Reporte.php';
     include_once './Dao/DaoReporte.php';
-        include_once './Dao/DaoUsuario.php';
+    include_once './Dao/DaoUsuario.php';
     include_once './Model/Usuario.php';
+    include_once './Dao/DaoPublicidadPagina.php';
+    include_once './Model/Publicidad.php';
     $daoReporte = new DaoReporte();
     session_start();
     $listaReporte;
     if($_SERVER['REQUEST_METHOD']=='POST')
     {
+        $localtime = getdate();
         $idUsuario = $_SESSION["idUsuario"];
         $dia=$_POST["dia"];
         $mes=$_POST["mes"];
         $año=$_POST["año"];
-        $fechaInicio=substr($año, 2,2)."-".$mes."-".$dia;
+        $fechaInicio=$año."-".$mes."-".$dia." ".$localtime["hours"].":".$localtime["minutes"].":".$localtime["seconds"];
         $diaFin=$_POST["diaFin"];
         $mesFin=$_POST["mesFin"];
-        $añoFin=$_POST["añoFin"];
-        $fechaFin=substr($añoFin, 2,2)."-".$mesFin."-".$diaFin;
+        $añoFin=$_POST["añoFin"];        
+        $fechaFin=$añoFin."-".$mesFin."-".$diaFin." ".$localtime["hours"].":".$localtime["minutes"].":".$localtime["seconds"];
         $listaReporte = $daoReporte->reporteFecha($fechaInicio, $fechaFin, $idUsuario);
     } 
         //Sesión usuario
@@ -30,6 +34,8 @@
             $usuario= $daoUsuario->ObtenerUsuarioId($idUsuario);
         }
     }
+    
+    
     
 $daoPublicidadPagina= new DaoPublicidadPagina();
 $publicidad=$daoPublicidadPagina->BuscarPublicidadParaMostrar(13);
@@ -277,28 +283,33 @@ if(empty($pathPublicidad))
 				    <tbody>
                                         <?php
                                         $TotalVenta;
-                                        echo "<tr>";
+                                        
+                                        
                                         if(isset($listaReporte))
                                         {
-                                            for($indes=0;$index<count($listaReporte);$index++)
+                                            
+                                            for($index=0;$index<count($listaReporte);$index++)
                                             {
+                                                echo "<tr>";
                                                 echo "<td>"; echo $listaReporte[$index]->getFecha(); echo "</td>";
                                                 echo "<td>"; echo $listaReporte[$index]->getTitulo(); echo "</td>";
                                                 echo "<td>"; echo $listaReporte[$index]->getNombreCategoria(); echo "</td>";
                                                 echo "<td>"; echo $listaReporte[$index]->getCorreo(); echo "</td>";
                                                 echo "<td>"; echo $listaReporte[$index]->getPais(); echo "</td>";
-                                                echo "<td>"; echo $listaReporte[$index]->getTipoTarjeta(); echo "</td>";
-                                                echo "<td>"; echo $listaReporte[$index]->getFecha(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getTipoTarjeta(); echo "</td>";                                                
                                                 echo "<td>"; echo $listaReporte[$index]->getUltimosNumeroTarjeta(); echo "</td>";
+                                                echo "<td>"; echo $listaReporte[$index]->getImpuesto(); echo "</td>";
                                                 echo "<td>"; echo $listaReporte[$index]->getPrecio(); echo "</td>";
                                                 $TotalVenta+=$listaReporte[$index]->getPrecio();
+                                                 echo "</tr>";
                                             }
                                         }
-                                        echo "</tr>";
+                                       
+                                        
                                         ?>
 				    </tbody>
 				  </table>
-
+                                <?php echo "total de ventas: ".$TotalVenta; ?>
 				
 
 				
