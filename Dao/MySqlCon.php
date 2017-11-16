@@ -20,7 +20,7 @@ class MySqlCon {
      
         public function connect ()
         {
-            $yolo=  new mysqli("localhost", "root", "little20!","bdm"); //Ayrton
+            $yolo=  new mysqli("localhost", "root", "pass!","bd"); //Ayrton
             //$yolo=  new mysqli("localhost", "root", "","bdm"); //Benjamin
             
 
